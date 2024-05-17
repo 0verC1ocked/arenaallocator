@@ -1,4 +1,4 @@
-#include "payload-builder.h"
+#include "../inc/payload-builder.h"
 
 PayloadBuilder::PayloadBuilder() {
     this->_arena = std::make_unique<google::protobuf::Arena>();

@@ -1,6 +1,6 @@
 #pragma once 
 
-#include "proto/payload.pb.h"
+#include "../src/proto/payload.pb.h"
 #include <google/protobuf/arena.h>
 
 class PayloadBuilder {
