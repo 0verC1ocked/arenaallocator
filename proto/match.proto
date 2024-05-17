@@ -1,0 +1,261 @@
+syntax = "proto3";
+package MATCH;
+import "payload.proto";
+option csharp_namespace="Superstars.Match";
+option go_package = "pb/mitsuko/match";
+
+message CreateMatchRequest {
+    string matchId = 1;
+    string homeUserId = 2;
+    string awayUserId = 3;
+    repeated PAYLOAD.Player home_lineup = 4;
+    repeated PAYLOAD.Player away_lineup = 5;
+    string firstBattingUser = 6;
+    bool isHomeBot = 7;
+    bool isAwayBot = 8;
+    int32 batsmanManaRequired = 9;
+    int32 bowlerManaRequired = 10;
+    bool isRPSEnabled = 11;
+    bool isPassivesEnabled = 12;
+    int32 maxOvers = 13;
+    bool isFtueMatch = 14;
+}
+
+
+message EndMatchRequest {
+    string matchId = 1;
+    EndMatchUserData team1_data = 2;
+    EndMatchUserData team2_data = 3;
+    string winnerId = 4;
+}
+
+message EndMatchUserData {
+    string id = 1;
+    int32 total = 2;
+    int32 wickets = 3;
+    int32 balls_faced = 4;
+    bool quit = 5;
+}
+
+// Nothing is canon beyond this point tread with caution
+
+message MatchList {
+    repeated string MatchId = 1;
+    repeated string Home = 2;
+    repeated string Away = 3;
+}
+
+enum M_PlayStates {
+    M_MatchMaked = 0;
+    M_Ready = 1;
+    M_Bowling = 2;
+    M_Batting = 3;
+}
+
+enum ConnectionState {
+    NotConnected = 0;
+    Connected = 1;
+    Disconnected = 2;
+    Reconnecting = 3;
+}
+
+enum ACK {
+    None = 0;
+    UserReady = 1;
+    MatchReady = 2;
+    InningsReady = 3;
+    PlayerSelected = 4;
+    NextBowlerSelection = 5;
+    NextBowlerSelected = 6;
+    StartBallSent = 7;
+    StartBallAcked = 8;
+    EndBall = 9;
+    EndInnings = 10;
+    Reconnected = 11;
+}
+
+enum JoinStates {
+    NoJoins = 0;
+    FirstJoin = 1;
+    SecondJoin = 2;
+    BothJoins = 3;
+}
+
+enum BallStates {
+    NoBallState = 0;
+    BallPublished = 1;
+    ShotPublished = 2;
+    Outcome = 3;
+    Ended = 4;
+}
+
+enum Brackets {
+    NoBracket = 0;
+    Zero = 1;
+    One = 2;
+    Two = 3;
+    Four = 4;
+    Six = 5;
+};
+
+enum Skulls {
+    NoSkull = 0;
+    GREEN = 1;
+    YELLOW = 2;
+    RED = 3;
+};
+
+enum SA {
+    NoneSA = 0;
+    Smash = 1;
+    TwoX = 2;
+    BowlerSteal = 3;
+    Yorker = 4;
+    BatsmanSteal = 5;
+    Rage = 6;
+    Boomerang = 7;
+    HalfRuns = 8;
+    Hex = 9;
+    Immortal = 10;
+    Doom = 11;
+    FiftyFifty = 12;
+    SAHit = 13;
+    Choke = 14;
+    Flashbang = 15;
+    Assault = 16;
+    AllIn = 17;
+    Powersteal = 18;
+    Triplet = 19;
+    Overload = 20;
+    Purge = 21;
+};
+
+enum Strike {
+    NoStrike = 0;
+    OnStrike = 1;
+    OffStrike = 2;
+};
+
+message SAInfo {
+    SA type = 1;
+    int32 duration_left = 2;
+    bool applied_for_current_ball = 3;
+    int32 max_duration = 4;
+}
+
+message M_UserInfo {
+    M_PlayStates playState = 1;
+    ConnectionState connectionState = 2;
+    string opponentUID = 3;
+    ACK ack = 4;
+    bool auto_play = 5;
+    int32 mana_fill = 6;
+    SAInfo sa_info = 7;
+    string id = 8;
+}
+
+message M_TShot {
+    int32 id = 1;
+    string name = 2;
+    int32 run = 3;
+    Brackets bracket = 4;
+    float probability = 5;
+    float wicket_chance = 6;
+    double ball_value = 7;
+    double shot_value = 8;
+    bool locked = 9;
+    bool shot_hidden = 10;
+    bool probability_hidden = 11;
+}
+
+message BracketData {
+    Brackets bracket_id = 1;
+    int32 shot_id= 2;
+}
+
+message M_TBall {
+    int32 id = 1;
+    string name = 2;
+    double value = 3;
+    Skulls skull = 4;
+    repeated BracketData shots_possible = 5;
+}
+
+message TOutcome {
+    PAYLOAD.ShotOutcomes outcome = 1;
+    int32 runs = 2;
+    double random = 3;
+}
+
+message M_CurrentBall {
+    BallStates state = 1;
+    TOutcome outcome = 2;
+    repeated M_TShot shots = 3;
+    repeated M_TBall balls = 4;
+    M_TBall selectedBall = 5;
+    M_TShot selectedShot = 6;
+    int32 over_ball_number = 7;
+}
+
+message M_Innings {
+    PAYLOAD.Innings inning = 1;
+    int32 runs = 2;
+    int32 balls = 3;
+    int32 wickets = 4;
+    int32 over_number = 5;
+    int32 max_balls_per_over = 6;
+    int32 max_overs = 7;
+    int32 boundary_counter = 8;
+    int32 green_shot_missed_counter = 9;
+    int32 yellow_shot_missed_counter = 10;
+    string user_on_batting = 11;
+    string user_on_bowling = 12;
+}
+
+message IOutcome {
+    int32 total_runs = 1;
+    int32 total_balls = 2;
+    int32 wickets_taken = 3;
+    int32 runs_scored = 4;
+    int32 original_runs_scored = 5;
+    Brackets bracket_id = 6;
+    int32 over_ball_number = 7;
+    int32 over_number = 8;
+    PAYLOAD.ShotOutcomes outcome = 9;
+}
+
+message MatchPlayer {
+    int32 character_id = 1;
+    string nickname = 2;
+    int32 image_number = 3;
+    int32 power = 4;
+    int32 lineup_number = 5;
+    bool is_out = 6;
+    bool used = 7;
+    int32 hits = 8;
+    int32 misses = 9;
+    double lhbrhb = 10;
+    double confidence = 11;
+    Strike strike = 12;
+}
+
+message MatchModel {
+    string matchId = 1;
+    repeated M_UserInfo users = 2;
+    string home = 3;
+    string away = 4;
+    JoinStates joinState = 5;
+    PAYLOAD.MatchStates matchState = 6;
+    M_Innings currentInnings = 7;
+    M_Innings previousInnings = 8;
+    repeated MatchPlayer home_lineup = 9;
+    repeated MatchPlayer away_lineup = 10;
+    M_CurrentBall currentBall = 11;
+    repeated M_CurrentBall previousBalls = 12;
+    MatchPlayer selectedFirstBatsman = 13;
+    MatchPlayer selectedSecondBatsman = 14;
+    MatchPlayer selectedBowler = 15;
+    PAYLOAD.Events previousEvent = 16;
+    int64 stateStartTime = 17;
+    int64 both_disconnect_time_point = 18;
+}

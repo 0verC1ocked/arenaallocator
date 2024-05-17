@@ -1,0 +1,41 @@
+syntax = "proto3";
+package RELAY_PAYLOAD;
+option csharp_namespace="Mitsuko.RelayPayload";
+option go_package = "pb/mitsuko/relay";
+
+message RelayPayload {
+    RelayType type = 1;
+    string path = 2;
+    string key = 3;
+    bytes pkt = 4;
+    SystemMessage sys_msg = 5;
+    int64 timestamp = 6;
+}
+
+enum RelayType {
+    NO_RELAY = 0;
+    HTTP_FORWARD = 1;
+    STREAM_FORWARD = 2;
+    EVENT_FORWARD = 3;
+    SYSTEM = 4;
+}
+
+message SystemMessage {
+    SystemEvent event = 1;
+    int32 player_count_change = 2;
+    GSMetric gameserver = 3;
+}
+
+enum SystemEvent {
+    UNSPECIFIED = 0;
+    READY = 1;
+    HEALTH = 2;
+    MATCH_CREATED = 3;
+    MATCH_ENDED = 4;
+    METRIC = 5;
+}
+
+message GSMetric {
+    int32 player_count = 1;
+    int32 match_count = 2;
+}

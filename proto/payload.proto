@@ -1,0 +1,430 @@
+syntax = "proto3";
+option csharp_namespace="Superstars.Payload";
+option go_package = "pb/mitsuko/payload";
+
+package PAYLOAD;
+
+enum MatchStates {
+    NoState = 0;
+    WaitingForUsers = 1;
+    WaitingForMatchReady = 2;
+    StartInnings = 3;
+    PlayerSelection = 4;
+    StartBall = 5;
+    BallSelection = 6;
+    ShotSelection = 7;
+    StateOutcome = 8;
+    StateEndBall = 9;
+    EndOver = 10;
+    StateEndInnings = 11;
+    MatchEnded = 12;
+    StateReconnecting = 13;
+}
+
+enum TurnState {
+    BATTING_TURN = 0;
+    BOWLING_TURN = 1;
+    BOTH_USERS_TURN = 2;
+    NO_TURN = 3;
+}
+
+message Payload {
+    Events event = 1;
+    UserData data = 2;
+    TurnState turn = 3;
+    Match match_state = 4;
+    Emoji emoji = 5;
+    Messaging message = 6;
+    Version version = 7;
+    TeamPosition for_team = 8;
+}
+
+enum TeamPosition {
+    TEAM_POSITION_NONE = 0;
+    HOME_TEAM = 1;
+    AWAY_TEAM = 2;
+}
+
+message Version {
+    int32 major = 1;
+    int32 minor = 2;
+    int32 patch = 3;
+}
+
+message UserData {
+    string userId = 1;
+    string roomId = 2;
+    string opponentId = 3;
+    string msg = 4;
+    repeated Player home_lineup = 5;
+    repeated Player away_lineup = 6;
+    PlayStates playState = 7;
+    repeated int32 batsman_selected = 8;
+    int32 bowler_selected = 9;
+    repeated TBall balls = 10;
+    repeated TShot shots = 11;
+    int32 id = 12; //Could be shot_id, ball_id
+    int32 selected_onstrike_batsman_id = 13;
+    int32 selected_offstrike_batsman_id = 14;
+    int32 selected_bowler_id = 15;
+    TResult result = 16;
+    int32 selection_timeout = 17;
+    int32 player_selection_timeout = 18;
+    int32 buffer_for_selection_timeout = 19;
+    int32 ping_pong_timeout = 20;
+    int32 batsman_mana_filled = 21;
+    int32 bowler_mana_filled = 22;
+    int32 activated_sa = 23;
+    int32 sa_duration = 24;
+    bool is_rps_active = 25;
+    repeated PassiveInfo onstrike_passives_info = 26;
+    repeated PassiveInfo offstrike_passives_info = 27;
+    repeated PassiveInfo bowler_passives_info = 28;
+    repeated EquipmentInfo applied_equipments = 29;
+    AttributeBoosts bowler_attribute_boosts = 30;
+    AttributeBoosts onstrike_attribute_boosts = 31;
+    AttributeBoosts offstrike_attribute_boosts = 32;
+    int32 selection_time_remaining = 33;
+    int32 max_selection_misses = 34;
+    int32 selection_misses = 35;
+    int32 oppnent_selection_misses = 36;
+    bool selection_missed = 37;
+    bool oppnent_selection_missed = 38;
+    int32 start_innings_timeout_seconds = 39;
+    int32 start_innings_time_remaining = 40;
+    MatchResult match_result = 41;
+}
+
+enum MatchResult {
+    NoResult = 0;
+    Vicotry = 1;
+    Defeat = 2;
+    Draw = 3;
+}
+
+message PassiveInfo {
+    int32 id = 1;
+    bool is_active = 2;
+}
+
+message EquipmentInfo {
+    int32 id = 1;
+    int32 bracket = 2;
+    classification classification = 3;
+}
+
+message AttributeBoosts {
+    double lb_rhb_debuff = 1;
+    double confidence_boost = 2;
+    double passive_boost = 3;
+    double props_boost = 4;
+}
+
+message TShot {
+    int32 id = 1;
+    string name = 2;
+    int32 run = 3;
+    int32 bracket = 4;
+    double probability = 5;
+    bool locked = 6;
+    bool shot_hidden = 7;
+    bool probability_hidden = 8;
+}
+
+enum DeadShotStatus {
+    NoStatus = 0;
+    Inactive = 1;
+    Success = 2;
+    Failed = 3;
+}
+ 
+message TSaInfo {
+    DeadShotStatus dead_shot_status = 1;
+    int32 batsman_active_sa = 2;
+    int32 bowler_active_sa = 3;
+    bool immortal_wicket_but_miss = 4;
+}
+
+message TResult {
+    int32 total_runs = 1;
+    int32 total_balls = 2;
+    int32 total_wicket_taken = 3;
+    int32 runs_scored = 4;
+    int32 original_runs_scored = 5;
+    int32 over_ball_number = 6;
+    int32 over_number = 7;
+    int32 bracket_id = 8;
+    ShotOutcomes outcome = 9;
+    WicketType type = 10;
+    AnticipationType anticipation_type = 11;
+    Innings inning = 12;
+    TSaInfo sa_info = 13;
+}
+
+message ShotsPossible {
+    int32 bracket_id = 1;
+    int32 shot_id = 2;
+}
+
+enum WicketType {
+    Invalid = 0;
+    Bowled = 1;
+    Catch = 2;
+}
+
+enum AnticipationType {
+    NoType = 0;
+    HighProbabilitySixSuccess = 1;
+    HighProbabilitySixMiss = 2;
+    HighProbabilityFourOut = 3;
+    HighProbabilityFourMiss = 4;
+    AnticipationOut = 5;
+}
+
+enum ShotOutcomes {
+    NoOutcome = 0;
+    Hit = 1; 
+    Miss = 2;
+    Wicket = 3;
+}
+
+message TBall {
+    int32 id = 1;
+    string name = 2;
+    double value = 3;
+    int32 skulls = 4;
+    repeated ShotsPossible shots_possible = 5; 
+}
+
+enum Emoji {
+    NoEmote = 0;
+    EmoteHappy = 1;
+    EmoteCool = 2;
+    EmoteAngry = 3;
+    EmoteYawn = 4;
+    EmoteSix = 5;
+    EmoteWicket = 6;
+}
+
+enum Messaging {
+    NoMessage = 0;
+    MessageGG = 1;
+    MessageWow = 2;
+    MessageNice = 3;
+    MessageHaha = 4;
+    MessageThanks = 5;
+    MessageGL = 6;
+}
+
+
+enum PlayStates {
+    NoPlay = 0;
+    Batting = 1;
+    Bowling = 2;
+    ForFeit = 3;
+}
+
+enum rarity {
+    NoRarity = 0;
+    Common = 1;
+    Reliable = 2;
+    Brilliant = 3;
+    WorldClass = 4;
+}
+
+enum classification {
+    NoClass = 0;
+    Batsman = 1;
+    Bowler = 2;
+}
+
+enum gender {
+    NonBinary = 0;
+    Male = 1;
+    Female = 2;
+}
+
+enum batting_style {
+    RightHand = 0;
+    LeftHand = 1;
+}
+
+enum bowling_style {
+    Fast = 0;
+    Spin = 1;
+    NoBowlingStyle = 3;
+}
+
+message Player {
+    int32 character_id = 1;
+    string nickname = 2;
+    rarity rarity = 3;
+    int32 image_number = 4;
+    classification classification = 5;
+    gender gender = 6;
+    int32 power = 7;
+    batting_style batting_style = 8;
+    bowling_style bowling_style = 9;
+    int32 level = 10;
+    int32 lineup_number = 11;
+    bool is_out = 12;
+    repeated int32 equipment_slots = 13;
+    repeated int32 props = 14;
+    repeated int32 passives = 15;
+}
+
+enum Innings {
+    FIRST = 0;
+    SECOND = 1;
+}
+
+message Inning {
+    Innings inning = 1;
+    int32 runs = 2;
+    int32 balls = 3;
+    int32 wickets = 4;
+    int32 over_number = 5;
+}
+
+message Match {
+    string matchId = 1;
+    repeated UserInfo usersInfo = 2;
+    Inning currentInning = 3;
+    Inning previousInning = 4;
+    CurrentBall current_ball = 5;
+    int32 on_strike = 6;
+    int32 off_strike = 7;
+    int32 bowler = 8;
+    Events previous_event = 9;
+    int32 active_bowler_sa = 10;
+    int32 active_batsman_sa = 11;
+    repeated TResult missed_results = 12;
+    MatchStates current_state = 13;
+    Events expected_event = 14;
+    int32 selection_timeout = 15;
+    int32 player_selection_timeout = 16;
+    int32 buffer_for_selection_timeout = 17;
+    string winner_team = 18;
+    int32 selection_time_remaining = 19;
+    int32 reconnection_count = 20;
+}
+
+message UserInfo {
+    string id = 1;
+    PlayStates play_state = 2;
+    repeated PlayerInfo lineup_info = 3;
+    int32 total_misses = 4;
+    int32 activated_sa = 5;
+    int32 sa_duration = 6;
+    int32 sa_total_duration = 7;
+    int32 mana_fill = 8;
+}
+
+message PlayerInfo {
+    int32 lineup_number = 1;
+    bool out = 2;
+    bool played = 3;
+    int32 runs_scored = 4;
+    int32 balls_faced = 5;
+    int32 wickets_taken = 6;
+    int32 balls_bowled = 7;
+    int32 runs_conceded = 8;
+}
+
+message CurrentBall {
+    int32 over_ball_number = 1;
+    repeated TBall balls = 2;
+    repeated TShot shots = 3;
+    int32 ball_id = 4;
+    TShot shot_selected = 5;
+    TResult result = 6;
+}
+
+enum Events {
+    NONE = 0;
+    OPP_JOINED = 1;
+    MATCH_READY = 2;
+    MATCH_CREATE_FAILED = 3;
+    JOINED_MATCH = 4;
+    MATCH_STARTED = 5;
+    MATCH_SCENE_LOADED = 6;
+    TOSS_START = 7;
+    TOSS_ACK = 8;
+    TOSS_RESULT = 9;
+    BAT_BALL_SELECTION = 10;
+    MATCH_INNINGS_DETAILS = 11;
+    INNINGS_INTRO = 12;
+    INNINGS_INTO_ACK = 13;
+    SERVER_INNINGS_READY = 14;
+    OPENERS_SELECTED = 15;
+    CLIENT_INNINGS_READY = 16;
+    INNINGS_START = 17;
+    INNINGS_START_ACK = 18;
+    START_CURRENT_OVER = 19;
+    START_BALL_EVENT = 20;
+    DELIVEIRES_DATA_CREATAED = 21;
+    DELIVERY_SELECTED = 22;
+    SHOTS_DATA = 23;
+    BRACKET_SELECTED = 24;
+    SHOT_RESULT = 25;
+    OUTCOME_UPDATED_DATA = 26;
+    SHOT_ANIMATIONS_FINISHED = 27;
+    END_CURRENT_BALL_EVENT = 28;
+    NEXT_BATSMAN_SELECTED = 29;
+    END_CURRENT_BALL_EVENT_ACK = 30;
+    END_CURRENT_OVER = 31;
+    NEXT_BOWLER_SELECTED = 32;
+    END_OVER_ACK = 33;
+    PASSIVES_DATA = 34;
+    UPDATE_LOCAL_PLAYER_STRENGTHS = 35;
+    ACTIVATE_BATSMAN_SA = 36;
+    BATSMAN_SA_ACTIVATED = 37;
+    ACTIVATE_BOWLER_SA = 38;
+    BOWLER_SA_ACTIVATED = 39;
+    BATSMAN_INSTANT_SA_ACTIVATE = 40;
+    BOWLER_INSTANT_SA_ACTIVATE = 41;
+    MATCH_MISSION_UPDATED = 42;
+    MATCH_ARENAS_UPDATED = 43;
+    END_FIRST_INNINGS = 44;
+    END_FIRST_INNINGS_ACK = 45;
+    END_MATCH = 46;
+    ABORT_MATCH = 47;
+    FORFIET_MATCH = 48;
+    REMATCH_JOIN = 49;
+    REMATCH_START = 50;
+    TURN_START = 51;
+    TURN_END = 52;
+    TURN_MISS = 53;
+    DISCONNECT_TIMER_DATA = 54;
+    CHAT_EMOJI = 55;
+    PING = 56;
+    BATSMAN_INSTANT_SA_INACTIVATE = 57;
+    BOWLER_INSTANT_SA_INACTIVATE = 68;
+    FIELDING_MODE_CHANGED = 59;
+    DATA_UPDATE = 60;
+    SPECTATOR_JOINED = 61;
+    SPECTATOR_JOIN_ACK = 62;
+    FAST_MODE_SPEED_UP = 63;
+    FAST_MODE_SPEED_UP_ACK = 64;
+    THREAD_EXIT = 65; 
+    MESSAGE = 66;
+    INNINGS_READY = 67;
+    START_BALL_EVENT_ACK = 69;
+    RECONNECT = 70;
+    CONNECT = 71;
+    CONNECT_ACK = 72;
+    CONNECTED = 73;
+    PONG = 74;
+    RECONNECTED = 75;
+    DISCONNECT = 76;
+    CREATE_MATCH = 77;
+    EVENT_HISTORY = 78;
+    MATCH_SCENE_LOADED_ACK = 79;
+    MATCH_NOT_FOUND=80;
+    UNSUPPORTED_VERSION=81;
+    REPLAY_SYNC=82;
+    REPLAY_SYNC_ACK=83;
+    REPLAY_CONNECT = 84;
+    REPLAY_CONNECT_ACK = 85;
+    REPLAY_RESYNC = 86;
+}
