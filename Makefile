@@ -6,7 +6,7 @@ SRC_DIR := ./src
 INC_DIR := ./inc
 LIBS := -lprotobuf
 
-TARGET := payloadbuilder.a
+TARGET := libpayloadbuilder.a
 
 HEADERS := $(shell find $(INC_DIR) -name '*.h' -or -name '*.hpp')
 SRCS := $(shell find $(SRC_DIR) -name '*.cpp' -or -name '*.c' -or -name "*.cc" -or -name '*.s')
@@ -21,9 +21,6 @@ debug: $(BUILD_DIR)/$(TARGET)
 
 release: CFLAGS += -O3 -fsantize=address
 release: $(BUILD_DIR)/$(TARGET)
-
-lib/payloadbuilder/build/payloadbuilder.a:
-	cd lib/payloadbuilder && $(MAKE) release
 
 $(BUILD_DIR)/$(TARGET): $(PCH) $(OBJS)
 	@echo "Archiving"
