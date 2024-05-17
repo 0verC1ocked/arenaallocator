@@ -22,6 +22,9 @@ debug: $(BUILD_DIR)/$(TARGET)
 release: CFLAGS += -O3 -fsantize=address
 release: $(BUILD_DIR)/$(TARGET)
 
+lib/payloadbuilder/build/payloadbuilder.a:
+	cd lib/payloadbuilder && $(MAKE) release
+
 $(BUILD_DIR)/$(TARGET): $(PCH) $(OBJS)
 	@echo "Archiving"
 	ar rcs $(BUILD_DIR)/$(TARGET) $(OBJS)
