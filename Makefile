@@ -6,7 +6,7 @@ SRC_DIR := ./src
 INC_DIR := ./inc
 LIBS := -lprotobuf
 
-STATIC_LIB := payloadbuilder.a
+TARGET := payloadbuilder.a
 
 HEADERS := $(shell find $(INC_DIR) -name '*.h' -or -name '*.hpp')
 SRCS := $(shell find $(SRC_DIR) -name '*.cpp' -or -name '*.c' -or -name "*.cc" -or -name '*.s')
@@ -17,14 +17,14 @@ CPPFLAGS := -fPIC
 CXXFLAGS += -std=c++17 -w # Add -g flag for debug information
 
 debug: CFLAGS += -g -DDEBUG
-debug: $(BUILD_DIR)/$(STATIC_LIB)
+debug: $(BUILD_DIR)/$(TARGET)
 
 release: CFLAGS += -O3 -fsantize=address
-release: $(BUILD_DIR)/$(STATIC_LIB)
+release: $(BUILD_DIR)/$(TARGET)
 
-$(BUILD_DIR)/$(STATIC_LIB): $(PCH) $(OBJS)
+$(BUILD_DIR)/$(TARGET): $(PCH) $(OBJS)
 	@echo "Archiving"
-	ar rcs $(BUILD_DIR)/$(STATIC_LIB) $(OBJS)
+	ar rcs $(BUILD_DIR)/$(TARGET) $(OBJS)
 
 $(OBJ_DIR)/%.cpp.o: %.cpp
 	@echo "Compiling sources..."
