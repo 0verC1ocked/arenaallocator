@@ -28,6 +28,13 @@ enum TurnState {
     NO_TURN = 3;
 }
 
+enum UserPlayState {
+    UPSNone = 0;
+    UPSOnStrike = 1;
+    UPSOffStrike = 2;
+    UPSBowling = 3;
+}
+
 message Payload {
     Events event = 1;
     UserData data = 2;

@@ -193,6 +193,33 @@ inline bool TurnState_Parse(
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<TurnState>(
     TurnState_descriptor(), name, value);
 }
+enum UserPlayState : int {
+  UPSNone = 0,
+  UPSOnStrike = 1,
+  UPSOffStrike = 2,
+  UPSBowling = 3,
+  UserPlayState_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::min(),
+  UserPlayState_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::max()
+};
+bool UserPlayState_IsValid(int value);
+constexpr UserPlayState UserPlayState_MIN = UPSNone;
+constexpr UserPlayState UserPlayState_MAX = UPSBowling;
+constexpr int UserPlayState_ARRAYSIZE = UserPlayState_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* UserPlayState_descriptor();
+template<typename T>
+inline const std::string& UserPlayState_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, UserPlayState>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function UserPlayState_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    UserPlayState_descriptor(), enum_t_value);
+}
+inline bool UserPlayState_Parse(
+    const std::string& name, UserPlayState* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<UserPlayState>(
+    UserPlayState_descriptor(), name, value);
+}
 enum TeamPosition : int {
   TEAM_POSITION_NONE = 0,
   HOME_TEAM = 1,
@@ -10016,6 +10043,11 @@ template <> struct is_proto_enum< ::PAYLOAD::TurnState> : ::std::true_type {};
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::PAYLOAD::TurnState>() {
   return ::PAYLOAD::TurnState_descriptor();
+}
+template <> struct is_proto_enum< ::PAYLOAD::UserPlayState> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::PAYLOAD::UserPlayState>() {
+  return ::PAYLOAD::UserPlayState_descriptor();
 }
 template <> struct is_proto_enum< ::PAYLOAD::TeamPosition> : ::std::true_type {};
 template <>

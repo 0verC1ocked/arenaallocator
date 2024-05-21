@@ -359,7 +359,7 @@ static void InitDefaultsscc_info_Version_payload_2eproto() {
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_Version_payload_2eproto}, {}};
 
 static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_payload_2eproto[17];
-static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_payload_2eproto[18];
+static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_payload_2eproto[19];
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_payload_2eproto = nullptr;
 
 const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_payload_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
@@ -770,83 +770,85 @@ const char descriptor_table_protodef_payload_2eproto[] PROTOBUF_SECTION_VARIABLE
   "tateEndInnings\020\013\022\016\n\nMatchEnded\020\014\022\025\n\021Stat"
   "eReconnecting\020\r*Q\n\tTurnState\022\020\n\014BATTING_"
   "TURN\020\000\022\020\n\014BOWLING_TURN\020\001\022\023\n\017BOTH_USERS_T"
-  "URN\020\002\022\013\n\007NO_TURN\020\003*D\n\014TeamPosition\022\026\n\022TE"
-  "AM_POSITION_NONE\020\000\022\r\n\tHOME_TEAM\020\001\022\r\n\tAWA"
-  "Y_TEAM\020\002*>\n\013MatchResult\022\014\n\010NoResult\020\000\022\013\n"
-  "\007Vicotry\020\001\022\n\n\006Defeat\020\002\022\010\n\004Draw\020\003*E\n\016Dead"
-  "ShotStatus\022\014\n\010NoStatus\020\000\022\014\n\010Inactive\020\001\022\013"
-  "\n\007Success\020\002\022\n\n\006Failed\020\003*0\n\nWicketType\022\013\n"
-  "\007Invalid\020\000\022\n\n\006Bowled\020\001\022\t\n\005Catch\020\002*\247\001\n\020An"
-  "ticipationType\022\n\n\006NoType\020\000\022\035\n\031HighProbab"
-  "ilitySixSuccess\020\001\022\032\n\026HighProbabilitySixM"
-  "iss\020\002\022\032\n\026HighProbabilityFourOut\020\003\022\033\n\027Hig"
-  "hProbabilityFourMiss\020\004\022\023\n\017AnticipationOu"
-  "t\020\005*<\n\014ShotOutcomes\022\r\n\tNoOutcome\020\000\022\007\n\003Hi"
-  "t\020\001\022\010\n\004Miss\020\002\022\n\n\006Wicket\020\003*q\n\005Emoji\022\013\n\007No"
-  "Emote\020\000\022\016\n\nEmoteHappy\020\001\022\r\n\tEmoteCool\020\002\022\016"
-  "\n\nEmoteAngry\020\003\022\r\n\tEmoteYawn\020\004\022\014\n\010EmoteSi"
-  "x\020\005\022\017\n\013EmoteWicket\020\006*}\n\tMessaging\022\r\n\tNoM"
-  "essage\020\000\022\r\n\tMessageGG\020\001\022\016\n\nMessageWow\020\002\022"
-  "\017\n\013MessageNice\020\003\022\017\n\013MessageHaha\020\004\022\021\n\rMes"
-  "sageThanks\020\005\022\r\n\tMessageGL\020\006*\?\n\nPlayState"
-  "s\022\n\n\006NoPlay\020\000\022\013\n\007Batting\020\001\022\013\n\007Bowling\020\002\022"
-  "\013\n\007ForFeit\020\003*O\n\006rarity\022\014\n\010NoRarity\020\000\022\n\n\006"
-  "Common\020\001\022\014\n\010Reliable\020\002\022\r\n\tBrilliant\020\003\022\016\n"
-  "\nWorldClass\020\004*6\n\016classification\022\013\n\007NoCla"
-  "ss\020\000\022\013\n\007Batsman\020\001\022\n\n\006Bowler\020\002*-\n\006gender\022"
-  "\r\n\tNonBinary\020\000\022\010\n\004Male\020\001\022\n\n\006Female\020\002*,\n\r"
-  "batting_style\022\r\n\tRightHand\020\000\022\014\n\010LeftHand"
-  "\020\001*7\n\rbowling_style\022\010\n\004Fast\020\000\022\010\n\004Spin\020\001\022"
-  "\022\n\016NoBowlingStyle\020\003* \n\007Innings\022\t\n\005FIRST\020"
-  "\000\022\n\n\006SECOND\020\001*\310\016\n\006Events\022\010\n\004NONE\020\000\022\016\n\nOP"
-  "P_JOINED\020\001\022\017\n\013MATCH_READY\020\002\022\027\n\023MATCH_CRE"
-  "ATE_FAILED\020\003\022\020\n\014JOINED_MATCH\020\004\022\021\n\rMATCH_"
-  "STARTED\020\005\022\026\n\022MATCH_SCENE_LOADED\020\006\022\016\n\nTOS"
-  "S_START\020\007\022\014\n\010TOSS_ACK\020\010\022\017\n\013TOSS_RESULT\020\t"
-  "\022\026\n\022BAT_BALL_SELECTION\020\n\022\031\n\025MATCH_INNING"
-  "S_DETAILS\020\013\022\021\n\rINNINGS_INTRO\020\014\022\024\n\020INNING"
-  "S_INTO_ACK\020\r\022\030\n\024SERVER_INNINGS_READY\020\016\022\024"
-  "\n\020OPENERS_SELECTED\020\017\022\030\n\024CLIENT_INNINGS_R"
-  "EADY\020\020\022\021\n\rINNINGS_START\020\021\022\025\n\021INNINGS_STA"
-  "RT_ACK\020\022\022\026\n\022START_CURRENT_OVER\020\023\022\024\n\020STAR"
-  "T_BALL_EVENT\020\024\022\034\n\030DELIVEIRES_DATA_CREATA"
-  "ED\020\025\022\025\n\021DELIVERY_SELECTED\020\026\022\016\n\nSHOTS_DAT"
-  "A\020\027\022\024\n\020BRACKET_SELECTED\020\030\022\017\n\013SHOT_RESULT"
-  "\020\031\022\030\n\024OUTCOME_UPDATED_DATA\020\032\022\034\n\030SHOT_ANI"
-  "MATIONS_FINISHED\020\033\022\032\n\026END_CURRENT_BALL_E"
-  "VENT\020\034\022\031\n\025NEXT_BATSMAN_SELECTED\020\035\022\036\n\032END"
-  "_CURRENT_BALL_EVENT_ACK\020\036\022\024\n\020END_CURRENT"
-  "_OVER\020\037\022\030\n\024NEXT_BOWLER_SELECTED\020 \022\020\n\014END"
-  "_OVER_ACK\020!\022\021\n\rPASSIVES_DATA\020\"\022!\n\035UPDATE"
-  "_LOCAL_PLAYER_STRENGTHS\020#\022\027\n\023ACTIVATE_BA"
-  "TSMAN_SA\020$\022\030\n\024BATSMAN_SA_ACTIVATED\020%\022\026\n\022"
-  "ACTIVATE_BOWLER_SA\020&\022\027\n\023BOWLER_SA_ACTIVA"
-  "TED\020\'\022\037\n\033BATSMAN_INSTANT_SA_ACTIVATE\020(\022\036"
-  "\n\032BOWLER_INSTANT_SA_ACTIVATE\020)\022\031\n\025MATCH_"
-  "MISSION_UPDATED\020*\022\030\n\024MATCH_ARENAS_UPDATE"
-  "D\020+\022\025\n\021END_FIRST_INNINGS\020,\022\031\n\025END_FIRST_"
-  "INNINGS_ACK\020-\022\r\n\tEND_MATCH\020.\022\017\n\013ABORT_MA"
-  "TCH\020/\022\021\n\rFORFIET_MATCH\0200\022\020\n\014REMATCH_JOIN"
-  "\0201\022\021\n\rREMATCH_START\0202\022\016\n\nTURN_START\0203\022\014\n"
-  "\010TURN_END\0204\022\r\n\tTURN_MISS\0205\022\031\n\025DISCONNECT"
-  "_TIMER_DATA\0206\022\016\n\nCHAT_EMOJI\0207\022\010\n\004PING\0208\022"
-  "!\n\035BATSMAN_INSTANT_SA_INACTIVATE\0209\022 \n\034BO"
-  "WLER_INSTANT_SA_INACTIVATE\020D\022\031\n\025FIELDING"
-  "_MODE_CHANGED\020;\022\017\n\013DATA_UPDATE\020<\022\024\n\020SPEC"
-  "TATOR_JOINED\020=\022\026\n\022SPECTATOR_JOIN_ACK\020>\022\026"
-  "\n\022FAST_MODE_SPEED_UP\020\?\022\032\n\026FAST_MODE_SPEE"
-  "D_UP_ACK\020@\022\017\n\013THREAD_EXIT\020A\022\013\n\007MESSAGE\020B"
-  "\022\021\n\rINNINGS_READY\020C\022\030\n\024START_BALL_EVENT_"
-  "ACK\020E\022\r\n\tRECONNECT\020F\022\013\n\007CONNECT\020G\022\017\n\013CON"
-  "NECT_ACK\020H\022\r\n\tCONNECTED\020I\022\010\n\004PONG\020J\022\017\n\013R"
-  "ECONNECTED\020K\022\016\n\nDISCONNECT\020L\022\020\n\014CREATE_M"
-  "ATCH\020M\022\021\n\rEVENT_HISTORY\020N\022\032\n\026MATCH_SCENE"
-  "_LOADED_ACK\020O\022\023\n\017MATCH_NOT_FOUND\020P\022\027\n\023UN"
-  "SUPPORTED_VERSION\020Q\022\017\n\013REPLAY_SYNC\020R\022\023\n\017"
-  "REPLAY_SYNC_ACK\020S\022\022\n\016REPLAY_CONNECT\020T\022\026\n"
-  "\022REPLAY_CONNECT_ACK\020U\022\021\n\rREPLAY_RESYNC\020V"
-  "B)Z\022pb/mitsuko/payload\252\002\022Superstars.Payl"
-  "oadb\006proto3"
+  "URN\020\002\022\013\n\007NO_TURN\020\003*O\n\rUserPlayState\022\013\n\007U"
+  "PSNone\020\000\022\017\n\013UPSOnStrike\020\001\022\020\n\014UPSOffStrik"
+  "e\020\002\022\016\n\nUPSBowling\020\003*D\n\014TeamPosition\022\026\n\022T"
+  "EAM_POSITION_NONE\020\000\022\r\n\tHOME_TEAM\020\001\022\r\n\tAW"
+  "AY_TEAM\020\002*>\n\013MatchResult\022\014\n\010NoResult\020\000\022\013"
+  "\n\007Vicotry\020\001\022\n\n\006Defeat\020\002\022\010\n\004Draw\020\003*E\n\016Dea"
+  "dShotStatus\022\014\n\010NoStatus\020\000\022\014\n\010Inactive\020\001\022"
+  "\013\n\007Success\020\002\022\n\n\006Failed\020\003*0\n\nWicketType\022\013"
+  "\n\007Invalid\020\000\022\n\n\006Bowled\020\001\022\t\n\005Catch\020\002*\247\001\n\020A"
+  "nticipationType\022\n\n\006NoType\020\000\022\035\n\031HighProba"
+  "bilitySixSuccess\020\001\022\032\n\026HighProbabilitySix"
+  "Miss\020\002\022\032\n\026HighProbabilityFourOut\020\003\022\033\n\027Hi"
+  "ghProbabilityFourMiss\020\004\022\023\n\017AnticipationO"
+  "ut\020\005*<\n\014ShotOutcomes\022\r\n\tNoOutcome\020\000\022\007\n\003H"
+  "it\020\001\022\010\n\004Miss\020\002\022\n\n\006Wicket\020\003*q\n\005Emoji\022\013\n\007N"
+  "oEmote\020\000\022\016\n\nEmoteHappy\020\001\022\r\n\tEmoteCool\020\002\022"
+  "\016\n\nEmoteAngry\020\003\022\r\n\tEmoteYawn\020\004\022\014\n\010EmoteS"
+  "ix\020\005\022\017\n\013EmoteWicket\020\006*}\n\tMessaging\022\r\n\tNo"
+  "Message\020\000\022\r\n\tMessageGG\020\001\022\016\n\nMessageWow\020\002"
+  "\022\017\n\013MessageNice\020\003\022\017\n\013MessageHaha\020\004\022\021\n\rMe"
+  "ssageThanks\020\005\022\r\n\tMessageGL\020\006*\?\n\nPlayStat"
+  "es\022\n\n\006NoPlay\020\000\022\013\n\007Batting\020\001\022\013\n\007Bowling\020\002"
+  "\022\013\n\007ForFeit\020\003*O\n\006rarity\022\014\n\010NoRarity\020\000\022\n\n"
+  "\006Common\020\001\022\014\n\010Reliable\020\002\022\r\n\tBrilliant\020\003\022\016"
+  "\n\nWorldClass\020\004*6\n\016classification\022\013\n\007NoCl"
+  "ass\020\000\022\013\n\007Batsman\020\001\022\n\n\006Bowler\020\002*-\n\006gender"
+  "\022\r\n\tNonBinary\020\000\022\010\n\004Male\020\001\022\n\n\006Female\020\002*,\n"
+  "\rbatting_style\022\r\n\tRightHand\020\000\022\014\n\010LeftHan"
+  "d\020\001*7\n\rbowling_style\022\010\n\004Fast\020\000\022\010\n\004Spin\020\001"
+  "\022\022\n\016NoBowlingStyle\020\003* \n\007Innings\022\t\n\005FIRST"
+  "\020\000\022\n\n\006SECOND\020\001*\310\016\n\006Events\022\010\n\004NONE\020\000\022\016\n\nO"
+  "PP_JOINED\020\001\022\017\n\013MATCH_READY\020\002\022\027\n\023MATCH_CR"
+  "EATE_FAILED\020\003\022\020\n\014JOINED_MATCH\020\004\022\021\n\rMATCH"
+  "_STARTED\020\005\022\026\n\022MATCH_SCENE_LOADED\020\006\022\016\n\nTO"
+  "SS_START\020\007\022\014\n\010TOSS_ACK\020\010\022\017\n\013TOSS_RESULT\020"
+  "\t\022\026\n\022BAT_BALL_SELECTION\020\n\022\031\n\025MATCH_INNIN"
+  "GS_DETAILS\020\013\022\021\n\rINNINGS_INTRO\020\014\022\024\n\020INNIN"
+  "GS_INTO_ACK\020\r\022\030\n\024SERVER_INNINGS_READY\020\016\022"
+  "\024\n\020OPENERS_SELECTED\020\017\022\030\n\024CLIENT_INNINGS_"
+  "READY\020\020\022\021\n\rINNINGS_START\020\021\022\025\n\021INNINGS_ST"
+  "ART_ACK\020\022\022\026\n\022START_CURRENT_OVER\020\023\022\024\n\020STA"
+  "RT_BALL_EVENT\020\024\022\034\n\030DELIVEIRES_DATA_CREAT"
+  "AED\020\025\022\025\n\021DELIVERY_SELECTED\020\026\022\016\n\nSHOTS_DA"
+  "TA\020\027\022\024\n\020BRACKET_SELECTED\020\030\022\017\n\013SHOT_RESUL"
+  "T\020\031\022\030\n\024OUTCOME_UPDATED_DATA\020\032\022\034\n\030SHOT_AN"
+  "IMATIONS_FINISHED\020\033\022\032\n\026END_CURRENT_BALL_"
+  "EVENT\020\034\022\031\n\025NEXT_BATSMAN_SELECTED\020\035\022\036\n\032EN"
+  "D_CURRENT_BALL_EVENT_ACK\020\036\022\024\n\020END_CURREN"
+  "T_OVER\020\037\022\030\n\024NEXT_BOWLER_SELECTED\020 \022\020\n\014EN"
+  "D_OVER_ACK\020!\022\021\n\rPASSIVES_DATA\020\"\022!\n\035UPDAT"
+  "E_LOCAL_PLAYER_STRENGTHS\020#\022\027\n\023ACTIVATE_B"
+  "ATSMAN_SA\020$\022\030\n\024BATSMAN_SA_ACTIVATED\020%\022\026\n"
+  "\022ACTIVATE_BOWLER_SA\020&\022\027\n\023BOWLER_SA_ACTIV"
+  "ATED\020\'\022\037\n\033BATSMAN_INSTANT_SA_ACTIVATE\020(\022"
+  "\036\n\032BOWLER_INSTANT_SA_ACTIVATE\020)\022\031\n\025MATCH"
+  "_MISSION_UPDATED\020*\022\030\n\024MATCH_ARENAS_UPDAT"
+  "ED\020+\022\025\n\021END_FIRST_INNINGS\020,\022\031\n\025END_FIRST"
+  "_INNINGS_ACK\020-\022\r\n\tEND_MATCH\020.\022\017\n\013ABORT_M"
+  "ATCH\020/\022\021\n\rFORFIET_MATCH\0200\022\020\n\014REMATCH_JOI"
+  "N\0201\022\021\n\rREMATCH_START\0202\022\016\n\nTURN_START\0203\022\014"
+  "\n\010TURN_END\0204\022\r\n\tTURN_MISS\0205\022\031\n\025DISCONNEC"
+  "T_TIMER_DATA\0206\022\016\n\nCHAT_EMOJI\0207\022\010\n\004PING\0208"
+  "\022!\n\035BATSMAN_INSTANT_SA_INACTIVATE\0209\022 \n\034B"
+  "OWLER_INSTANT_SA_INACTIVATE\020D\022\031\n\025FIELDIN"
+  "G_MODE_CHANGED\020;\022\017\n\013DATA_UPDATE\020<\022\024\n\020SPE"
+  "CTATOR_JOINED\020=\022\026\n\022SPECTATOR_JOIN_ACK\020>\022"
+  "\026\n\022FAST_MODE_SPEED_UP\020\?\022\032\n\026FAST_MODE_SPE"
+  "ED_UP_ACK\020@\022\017\n\013THREAD_EXIT\020A\022\013\n\007MESSAGE\020"
+  "B\022\021\n\rINNINGS_READY\020C\022\030\n\024START_BALL_EVENT"
+  "_ACK\020E\022\r\n\tRECONNECT\020F\022\013\n\007CONNECT\020G\022\017\n\013CO"
+  "NNECT_ACK\020H\022\r\n\tCONNECTED\020I\022\010\n\004PONG\020J\022\017\n\013"
+  "RECONNECTED\020K\022\016\n\nDISCONNECT\020L\022\020\n\014CREATE_"
+  "MATCH\020M\022\021\n\rEVENT_HISTORY\020N\022\032\n\026MATCH_SCEN"
+  "E_LOADED_ACK\020O\022\023\n\017MATCH_NOT_FOUND\020P\022\027\n\023U"
+  "NSUPPORTED_VERSION\020Q\022\017\n\013REPLAY_SYNC\020R\022\023\n"
+  "\017REPLAY_SYNC_ACK\020S\022\022\n\016REPLAY_CONNECT\020T\022\026"
+  "\n\022REPLAY_CONNECT_ACK\020U\022\021\n\rREPLAY_RESYNC\020"
+  "VB)Z\022pb/mitsuko/payload\252\002\022Superstars.Pay"
+  "loadb\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_payload_2eproto_deps[1] = {
 };
@@ -871,7 +873,7 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_pay
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_payload_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_payload_2eproto = {
-  false, false, descriptor_table_protodef_payload_2eproto, "payload.proto", 8051,
+  false, false, descriptor_table_protodef_payload_2eproto, "payload.proto", 8132,
   &descriptor_table_payload_2eproto_once, descriptor_table_payload_2eproto_sccs, descriptor_table_payload_2eproto_deps, 17, 0,
   schemas, file_default_instances, TableStruct_payload_2eproto::offsets,
   file_level_metadata_payload_2eproto, 17, file_level_enum_descriptors_payload_2eproto, file_level_service_descriptors_payload_2eproto,
@@ -922,9 +924,25 @@ bool TurnState_IsValid(int value) {
   }
 }
 
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* TeamPosition_descriptor() {
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* UserPlayState_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_payload_2eproto);
   return file_level_enum_descriptors_payload_2eproto[2];
+}
+bool UserPlayState_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+    case 2:
+    case 3:
+      return true;
+    default:
+      return false;
+  }
+}
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* TeamPosition_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_payload_2eproto);
+  return file_level_enum_descriptors_payload_2eproto[3];
 }
 bool TeamPosition_IsValid(int value) {
   switch (value) {
@@ -939,7 +957,7 @@ bool TeamPosition_IsValid(int value) {
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* MatchResult_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_payload_2eproto);
-  return file_level_enum_descriptors_payload_2eproto[3];
+  return file_level_enum_descriptors_payload_2eproto[4];
 }
 bool MatchResult_IsValid(int value) {
   switch (value) {
@@ -955,7 +973,7 @@ bool MatchResult_IsValid(int value) {
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* DeadShotStatus_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_payload_2eproto);
-  return file_level_enum_descriptors_payload_2eproto[4];
+  return file_level_enum_descriptors_payload_2eproto[5];
 }
 bool DeadShotStatus_IsValid(int value) {
   switch (value) {
@@ -971,7 +989,7 @@ bool DeadShotStatus_IsValid(int value) {
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* WicketType_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_payload_2eproto);
-  return file_level_enum_descriptors_payload_2eproto[5];
+  return file_level_enum_descriptors_payload_2eproto[6];
 }
 bool WicketType_IsValid(int value) {
   switch (value) {
@@ -986,7 +1004,7 @@ bool WicketType_IsValid(int value) {
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* AnticipationType_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_payload_2eproto);
-  return file_level_enum_descriptors_payload_2eproto[6];
+  return file_level_enum_descriptors_payload_2eproto[7];
 }
 bool AnticipationType_IsValid(int value) {
   switch (value) {
@@ -1004,7 +1022,7 @@ bool AnticipationType_IsValid(int value) {
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ShotOutcomes_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_payload_2eproto);
-  return file_level_enum_descriptors_payload_2eproto[7];
+  return file_level_enum_descriptors_payload_2eproto[8];
 }
 bool ShotOutcomes_IsValid(int value) {
   switch (value) {
@@ -1020,7 +1038,7 @@ bool ShotOutcomes_IsValid(int value) {
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* Emoji_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_payload_2eproto);
-  return file_level_enum_descriptors_payload_2eproto[8];
+  return file_level_enum_descriptors_payload_2eproto[9];
 }
 bool Emoji_IsValid(int value) {
   switch (value) {
@@ -1039,7 +1057,7 @@ bool Emoji_IsValid(int value) {
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* Messaging_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_payload_2eproto);
-  return file_level_enum_descriptors_payload_2eproto[9];
+  return file_level_enum_descriptors_payload_2eproto[10];
 }
 bool Messaging_IsValid(int value) {
   switch (value) {
@@ -1058,7 +1076,7 @@ bool Messaging_IsValid(int value) {
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* PlayStates_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_payload_2eproto);
-  return file_level_enum_descriptors_payload_2eproto[10];
+  return file_level_enum_descriptors_payload_2eproto[11];
 }
 bool PlayStates_IsValid(int value) {
   switch (value) {
@@ -1074,7 +1092,7 @@ bool PlayStates_IsValid(int value) {
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* rarity_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_payload_2eproto);
-  return file_level_enum_descriptors_payload_2eproto[11];
+  return file_level_enum_descriptors_payload_2eproto[12];
 }
 bool rarity_IsValid(int value) {
   switch (value) {
@@ -1091,7 +1109,7 @@ bool rarity_IsValid(int value) {
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* classification_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_payload_2eproto);
-  return file_level_enum_descriptors_payload_2eproto[12];
+  return file_level_enum_descriptors_payload_2eproto[13];
 }
 bool classification_IsValid(int value) {
   switch (value) {
@@ -1106,7 +1124,7 @@ bool classification_IsValid(int value) {
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* gender_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_payload_2eproto);
-  return file_level_enum_descriptors_payload_2eproto[13];
+  return file_level_enum_descriptors_payload_2eproto[14];
 }
 bool gender_IsValid(int value) {
   switch (value) {
@@ -1121,7 +1139,7 @@ bool gender_IsValid(int value) {
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* batting_style_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_payload_2eproto);
-  return file_level_enum_descriptors_payload_2eproto[14];
+  return file_level_enum_descriptors_payload_2eproto[15];
 }
 bool batting_style_IsValid(int value) {
   switch (value) {
@@ -1135,7 +1153,7 @@ bool batting_style_IsValid(int value) {
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* bowling_style_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_payload_2eproto);
-  return file_level_enum_descriptors_payload_2eproto[15];
+  return file_level_enum_descriptors_payload_2eproto[16];
 }
 bool bowling_style_IsValid(int value) {
   switch (value) {
@@ -1150,7 +1168,7 @@ bool bowling_style_IsValid(int value) {
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* Innings_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_payload_2eproto);
-  return file_level_enum_descriptors_payload_2eproto[16];
+  return file_level_enum_descriptors_payload_2eproto[17];
 }
 bool Innings_IsValid(int value) {
   switch (value) {
@@ -1164,7 +1182,7 @@ bool Innings_IsValid(int value) {
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* Events_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_payload_2eproto);
-  return file_level_enum_descriptors_payload_2eproto[17];
+  return file_level_enum_descriptors_payload_2eproto[18];
 }
 bool Events_IsValid(int value) {
   switch (value) {
