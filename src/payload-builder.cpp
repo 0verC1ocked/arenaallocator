@@ -50,6 +50,10 @@ MATCH::CreateMatchRequest* PayloadBuilder::newCreateMatchRequest() {
     return google::protobuf::Arena::CreateMessage<MATCH::CreateMatchRequest>(this->_arena.get());
 }
 
+IPC::IPCMessage* PayloadBuilder::newIPCMessage() {
+    return google::protobuf::Arena::CreateMessage<IPC::IPCMessage>(this->_arena.get());
+}
+
 PayloadBuilder& PayloadBuilder::build(PAYLOAD::Payload* payload) {
     payload->set_event(this->_event);
     payload->mutable_data()->set_userid(this->_uid);

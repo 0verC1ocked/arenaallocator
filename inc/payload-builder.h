@@ -2,6 +2,7 @@
 
 #include "../src/proto/payload.pb.h"
 #include "../src/proto/match.pb.h"
+#include "../src/proto/ipc.pb.h"
 #include <google/protobuf/arena.h>
 
 class PayloadBuilder {
@@ -21,6 +22,8 @@ public:
     PAYLOAD::Payload* newPayload();
     
     MATCH::CreateMatchRequest* newCreateMatchRequest();
+
+    IPC::IPCMessage* newIPCMessage();
 
     PayloadBuilder& build(PAYLOAD::Payload* payload);
 

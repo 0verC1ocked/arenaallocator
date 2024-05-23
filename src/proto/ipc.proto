@@ -1,0 +1,13 @@
+syntax = "proto3";
+package IPC;
+
+enum IPCMessageType {
+    IPC_NONE = 0;
+    IPC_CREATE_MATCH_REQUEST = 1;
+    IPC_MATCH_REQUEST = 2;
+}
+
+message IPCMessage {
+    IPCMessageType type = 1;
+    bytes serializedData = 2;
+}
