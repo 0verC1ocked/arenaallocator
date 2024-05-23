@@ -13,7 +13,7 @@ PayloadBuilder& PayloadBuilder::setEvent(PAYLOAD::Events event) {
     return *this;
 }
 
-PayloadBuilder& PayloadBuilder::reset() {
+PayloadBuilder& PayloadBuilder::resetPayload() {
     this->_event = PAYLOAD::Events::NONE;
     this->_uid = "";
     this->_rid = "";
@@ -46,12 +46,16 @@ PAYLOAD::Payload* PayloadBuilder::newPayload() {
     return google::protobuf::Arena::CreateMessage<PAYLOAD::Payload>(this->_arena.get());
 }
 
+MATCH::CreateMatchRequest* PayloadBuilder::newCreateMatchRequest() {
+    return google::protobuf::Arena::CreateMessage<MATCH::CreateMatchRequest>(this->_arena.get());
+}
+
 PayloadBuilder& PayloadBuilder::build(PAYLOAD::Payload* payload) {
     payload->set_event(this->_event);
     payload->mutable_data()->set_userid(this->_uid);
     payload->mutable_data()->set_opponentid(this->_oid);
     payload->mutable_data()->set_roomid(this->_rid);
     payload->mutable_data()->set_msg(this->_msg);
-    this->reset();
+    this->resetPayload();
     return *this;
 }

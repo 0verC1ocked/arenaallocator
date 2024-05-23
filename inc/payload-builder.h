@@ -1,6 +1,7 @@
 #pragma once 
 
 #include "../src/proto/payload.pb.h"
+#include "../src/proto/match.pb.h"
 #include <google/protobuf/arena.h>
 
 class PayloadBuilder {
@@ -15,8 +16,12 @@ public:
     PayloadBuilder& setMessage(std::string MSG);
     
 
-    PayloadBuilder& reset();
+    PayloadBuilder& resetPayload();
+
     PAYLOAD::Payload* newPayload();
+    
+    MATCH::CreateMatchRequest* newCreateMatchRequest();
+
     PayloadBuilder& build(PAYLOAD::Payload* payload);
 
 private:
