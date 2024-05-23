@@ -26,6 +26,10 @@ extern PROTOBUF_INTERNAL_EXPORT_match_2eproto ::PROTOBUF_NAMESPACE_ID::internal:
 extern PROTOBUF_INTERNAL_EXPORT_match_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_TOutcome_match_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_payload_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Player_payload_2eproto;
 namespace MATCH {
+class IPCMessageDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<IPCMessage> _instance;
+} _IPCMessage_default_instance_;
 class CreateMatchRequestDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<CreateMatchRequest> _instance;
@@ -158,6 +162,20 @@ static void InitDefaultsscc_info_IOutcome_match_2eproto() {
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_IOutcome_match_2eproto =
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_IOutcome_match_2eproto}, {}};
+
+static void InitDefaultsscc_info_IPCMessage_match_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::MATCH::_IPCMessage_default_instance_;
+    new (ptr) ::MATCH::IPCMessage();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::MATCH::IPCMessage::InitAsDefaultInstance();
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_IPCMessage_match_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_IPCMessage_match_2eproto}, {}};
 
 static void InitDefaultsscc_info_M_CurrentBall_match_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -308,11 +326,18 @@ static void InitDefaultsscc_info_TOutcome_match_2eproto() {
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_TOutcome_match_2eproto =
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_TOutcome_match_2eproto}, {}};
 
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_match_2eproto[15];
-static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_match_2eproto[9];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_match_2eproto[16];
+static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_match_2eproto[10];
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_match_2eproto = nullptr;
 
 const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_match_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::MATCH::IPCMessage, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::MATCH::IPCMessage, type_),
+  PROTOBUF_FIELD_OFFSET(::MATCH::IPCMessage, serializeddata_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::MATCH::CreateMatchRequest, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -507,24 +532,26 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_match_2eproto::offsets[] PROTO
   PROTOBUF_FIELD_OFFSET(::MATCH::MatchModel, both_disconnect_time_point_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, -1, sizeof(::MATCH::CreateMatchRequest)},
-  { 19, -1, sizeof(::MATCH::EndMatchRequest)},
-  { 28, -1, sizeof(::MATCH::EndMatchUserData)},
-  { 38, -1, sizeof(::MATCH::MatchList)},
-  { 46, -1, sizeof(::MATCH::SAInfo)},
-  { 55, -1, sizeof(::MATCH::M_UserInfo)},
-  { 68, -1, sizeof(::MATCH::M_TShot)},
-  { 84, -1, sizeof(::MATCH::BracketData)},
-  { 91, -1, sizeof(::MATCH::M_TBall)},
-  { 101, -1, sizeof(::MATCH::TOutcome)},
-  { 109, -1, sizeof(::MATCH::M_CurrentBall)},
-  { 121, -1, sizeof(::MATCH::M_Innings)},
-  { 138, -1, sizeof(::MATCH::IOutcome)},
-  { 152, -1, sizeof(::MATCH::MatchPlayer)},
-  { 169, -1, sizeof(::MATCH::MatchModel)},
+  { 0, -1, sizeof(::MATCH::IPCMessage)},
+  { 7, -1, sizeof(::MATCH::CreateMatchRequest)},
+  { 26, -1, sizeof(::MATCH::EndMatchRequest)},
+  { 35, -1, sizeof(::MATCH::EndMatchUserData)},
+  { 45, -1, sizeof(::MATCH::MatchList)},
+  { 53, -1, sizeof(::MATCH::SAInfo)},
+  { 62, -1, sizeof(::MATCH::M_UserInfo)},
+  { 75, -1, sizeof(::MATCH::M_TShot)},
+  { 91, -1, sizeof(::MATCH::BracketData)},
+  { 98, -1, sizeof(::MATCH::M_TBall)},
+  { 108, -1, sizeof(::MATCH::TOutcome)},
+  { 116, -1, sizeof(::MATCH::M_CurrentBall)},
+  { 128, -1, sizeof(::MATCH::M_Innings)},
+  { 145, -1, sizeof(::MATCH::IOutcome)},
+  { 159, -1, sizeof(::MATCH::MatchPlayer)},
+  { 176, -1, sizeof(::MATCH::MatchModel)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::MATCH::_IPCMessage_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::MATCH::_CreateMatchRequest_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::MATCH::_EndMatchRequest_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::MATCH::_EndMatchUserData_default_instance_),
@@ -543,89 +570,93 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
 };
 
 const char descriptor_table_protodef_match_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
-  "\n\013match.proto\022\005MATCH\032\rpayload.proto\"\352\002\n\022"
-  "CreateMatchRequest\022\017\n\007matchId\030\001 \001(\t\022\022\n\nh"
-  "omeUserId\030\002 \001(\t\022\022\n\nawayUserId\030\003 \001(\t\022$\n\013h"
-  "ome_lineup\030\004 \003(\0132\017.PAYLOAD.Player\022$\n\013awa"
-  "y_lineup\030\005 \003(\0132\017.PAYLOAD.Player\022\030\n\020first"
-  "BattingUser\030\006 \001(\t\022\021\n\tisHomeBot\030\007 \001(\010\022\021\n\t"
-  "isAwayBot\030\010 \001(\010\022\033\n\023batsmanManaRequired\030\t"
-  " \001(\005\022\032\n\022bowlerManaRequired\030\n \001(\005\022\024\n\014isRP"
-  "SEnabled\030\013 \001(\010\022\031\n\021isPassivesEnabled\030\014 \001("
-  "\010\022\020\n\010maxOvers\030\r \001(\005\022\023\n\013isFtueMatch\030\016 \001(\010"
-  "\"\216\001\n\017EndMatchRequest\022\017\n\007matchId\030\001 \001(\t\022+\n"
-  "\nteam1_data\030\002 \001(\0132\027.MATCH.EndMatchUserDa"
-  "ta\022+\n\nteam2_data\030\003 \001(\0132\027.MATCH.EndMatchU"
-  "serData\022\020\n\010winnerId\030\004 \001(\t\"a\n\020EndMatchUse"
-  "rData\022\n\n\002id\030\001 \001(\t\022\r\n\005total\030\002 \001(\005\022\017\n\007wick"
-  "ets\030\003 \001(\005\022\023\n\013balls_faced\030\004 \001(\005\022\014\n\004quit\030\005"
-  " \001(\010\"8\n\tMatchList\022\017\n\007MatchId\030\001 \003(\t\022\014\n\004Ho"
-  "me\030\002 \003(\t\022\014\n\004Away\030\003 \003(\t\"p\n\006SAInfo\022\027\n\004type"
-  "\030\001 \001(\0162\t.MATCH.SA\022\025\n\rduration_left\030\002 \001(\005"
-  "\022 \n\030applied_for_current_ball\030\003 \001(\010\022\024\n\014ma"
-  "x_duration\030\004 \001(\005\"\345\001\n\nM_UserInfo\022&\n\tplayS"
-  "tate\030\001 \001(\0162\023.MATCH.M_PlayStates\022/\n\017conne"
-  "ctionState\030\002 \001(\0162\026.MATCH.ConnectionState"
-  "\022\023\n\013opponentUID\030\003 \001(\t\022\027\n\003ack\030\004 \001(\0162\n.MAT"
-  "CH.ACK\022\021\n\tauto_play\030\005 \001(\010\022\021\n\tmana_fill\030\006"
-  " \001(\005\022\036\n\007sa_info\030\007 \001(\0132\r.MATCH.SAInfo\022\n\n\002"
-  "id\030\010 \001(\t\"\347\001\n\007M_TShot\022\n\n\002id\030\001 \001(\005\022\014\n\004name"
-  "\030\002 \001(\t\022\013\n\003run\030\003 \001(\005\022 \n\007bracket\030\004 \001(\0162\017.M"
-  "ATCH.Brackets\022\023\n\013probability\030\005 \001(\002\022\025\n\rwi"
-  "cket_chance\030\006 \001(\002\022\022\n\nball_value\030\007 \001(\001\022\022\n"
-  "\nshot_value\030\010 \001(\001\022\016\n\006locked\030\t \001(\010\022\023\n\013sho"
-  "t_hidden\030\n \001(\010\022\032\n\022probability_hidden\030\013 \001"
-  "(\010\"C\n\013BracketData\022#\n\nbracket_id\030\001 \001(\0162\017."
-  "MATCH.Brackets\022\017\n\007shot_id\030\002 \001(\005\"|\n\007M_TBa"
-  "ll\022\n\n\002id\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\022\r\n\005value\030\003 "
-  "\001(\001\022\034\n\005skull\030\004 \001(\0162\r.MATCH.Skulls\022*\n\016sho"
-  "ts_possible\030\005 \003(\0132\022.MATCH.BracketData\"P\n"
-  "\010TOutcome\022&\n\007outcome\030\001 \001(\0162\025.PAYLOAD.Sho"
-  "tOutcomes\022\014\n\004runs\030\002 \001(\005\022\016\n\006random\030\003 \001(\001\""
-  "\367\001\n\rM_CurrentBall\022 \n\005state\030\001 \001(\0162\021.MATCH"
-  ".BallStates\022 \n\007outcome\030\002 \001(\0132\017.MATCH.TOu"
-  "tcome\022\035\n\005shots\030\003 \003(\0132\016.MATCH.M_TShot\022\035\n\005"
-  "balls\030\004 \003(\0132\016.MATCH.M_TBall\022$\n\014selectedB"
-  "all\030\005 \001(\0132\016.MATCH.M_TBall\022$\n\014selectedSho"
-  "t\030\006 \001(\0132\016.MATCH.M_TShot\022\030\n\020over_ball_num"
-  "ber\030\007 \001(\005\"\262\002\n\tM_Innings\022 \n\006inning\030\001 \001(\0162"
-  "\020.PAYLOAD.Innings\022\014\n\004runs\030\002 \001(\005\022\r\n\005balls"
-  "\030\003 \001(\005\022\017\n\007wickets\030\004 \001(\005\022\023\n\013over_number\030\005"
-  " \001(\005\022\032\n\022max_balls_per_over\030\006 \001(\005\022\021\n\tmax_"
-  "overs\030\007 \001(\005\022\030\n\020boundary_counter\030\010 \001(\005\022!\n"
-  "\031green_shot_missed_counter\030\t \001(\005\022\"\n\032yell"
-  "ow_shot_missed_counter\030\n \001(\005\022\027\n\017user_on_"
-  "batting\030\013 \001(\t\022\027\n\017user_on_bowling\030\014 \001(\t\"\371"
-  "\001\n\010IOutcome\022\022\n\ntotal_runs\030\001 \001(\005\022\023\n\013total"
-  "_balls\030\002 \001(\005\022\025\n\rwickets_taken\030\003 \001(\005\022\023\n\013r"
-  "uns_scored\030\004 \001(\005\022\034\n\024original_runs_scored"
-  "\030\005 \001(\005\022#\n\nbracket_id\030\006 \001(\0162\017.MATCH.Brack"
-  "ets\022\030\n\020over_ball_number\030\007 \001(\005\022\023\n\013over_nu"
-  "mber\030\010 \001(\005\022&\n\007outcome\030\t \001(\0162\025.PAYLOAD.Sh"
-  "otOutcomes\"\360\001\n\013MatchPlayer\022\024\n\014character_"
-  "id\030\001 \001(\005\022\020\n\010nickname\030\002 \001(\t\022\024\n\014image_numb"
-  "er\030\003 \001(\005\022\r\n\005power\030\004 \001(\005\022\025\n\rlineup_number"
-  "\030\005 \001(\005\022\016\n\006is_out\030\006 \001(\010\022\014\n\004used\030\007 \001(\010\022\014\n\004"
-  "hits\030\010 \001(\005\022\016\n\006misses\030\t \001(\005\022\016\n\006lhbrhb\030\n \001"
-  "(\001\022\022\n\nconfidence\030\013 \001(\001\022\035\n\006strike\030\014 \001(\0162\r"
-  ".MATCH.Strike\"\237\005\n\nMatchModel\022\017\n\007matchId\030"
-  "\001 \001(\t\022 \n\005users\030\002 \003(\0132\021.MATCH.M_UserInfo\022"
-  "\014\n\004home\030\003 \001(\t\022\014\n\004away\030\004 \001(\t\022$\n\tjoinState"
-  "\030\005 \001(\0162\021.MATCH.JoinStates\022(\n\nmatchState\030"
-  "\006 \001(\0162\024.PAYLOAD.MatchStates\022(\n\016currentIn"
-  "nings\030\007 \001(\0132\020.MATCH.M_Innings\022)\n\017previou"
-  "sInnings\030\010 \001(\0132\020.MATCH.M_Innings\022\'\n\013home"
-  "_lineup\030\t \003(\0132\022.MATCH.MatchPlayer\022\'\n\013awa"
-  "y_lineup\030\n \003(\0132\022.MATCH.MatchPlayer\022)\n\013cu"
-  "rrentBall\030\013 \001(\0132\024.MATCH.M_CurrentBall\022+\n"
-  "\rpreviousBalls\030\014 \003(\0132\024.MATCH.M_CurrentBa"
-  "ll\0220\n\024selectedFirstBatsman\030\r \001(\0132\022.MATCH"
-  ".MatchPlayer\0221\n\025selectedSecondBatsman\030\016 "
-  "\001(\0132\022.MATCH.MatchPlayer\022*\n\016selectedBowle"
-  "r\030\017 \001(\0132\022.MATCH.MatchPlayer\022&\n\rpreviousE"
-  "vent\030\020 \001(\0162\017.PAYLOAD.Events\022\026\n\016stateStar"
-  "tTime\030\021 \001(\003\022\"\n\032both_disconnect_time_poin"
-  "t\030\022 \001(\003*K\n\014M_PlayStates\022\020\n\014M_MatchMaked\020"
+  "\n\013match.proto\022\005MATCH\032\rpayload.proto\"I\n\nI"
+  "PCMessage\022#\n\004type\030\001 \001(\0162\025.MATCH.IPCMessa"
+  "geType\022\026\n\016serializedData\030\002 \001(\014\"\352\002\n\022Creat"
+  "eMatchRequest\022\017\n\007matchId\030\001 \001(\t\022\022\n\nhomeUs"
+  "erId\030\002 \001(\t\022\022\n\nawayUserId\030\003 \001(\t\022$\n\013home_l"
+  "ineup\030\004 \003(\0132\017.PAYLOAD.Player\022$\n\013away_lin"
+  "eup\030\005 \003(\0132\017.PAYLOAD.Player\022\030\n\020firstBatti"
+  "ngUser\030\006 \001(\t\022\021\n\tisHomeBot\030\007 \001(\010\022\021\n\tisAwa"
+  "yBot\030\010 \001(\010\022\033\n\023batsmanManaRequired\030\t \001(\005\022"
+  "\032\n\022bowlerManaRequired\030\n \001(\005\022\024\n\014isRPSEnab"
+  "led\030\013 \001(\010\022\031\n\021isPassivesEnabled\030\014 \001(\010\022\020\n\010"
+  "maxOvers\030\r \001(\005\022\023\n\013isFtueMatch\030\016 \001(\010\"\216\001\n\017"
+  "EndMatchRequest\022\017\n\007matchId\030\001 \001(\t\022+\n\nteam"
+  "1_data\030\002 \001(\0132\027.MATCH.EndMatchUserData\022+\n"
+  "\nteam2_data\030\003 \001(\0132\027.MATCH.EndMatchUserDa"
+  "ta\022\020\n\010winnerId\030\004 \001(\t\"a\n\020EndMatchUserData"
+  "\022\n\n\002id\030\001 \001(\t\022\r\n\005total\030\002 \001(\005\022\017\n\007wickets\030\003"
+  " \001(\005\022\023\n\013balls_faced\030\004 \001(\005\022\014\n\004quit\030\005 \001(\010\""
+  "8\n\tMatchList\022\017\n\007MatchId\030\001 \003(\t\022\014\n\004Home\030\002 "
+  "\003(\t\022\014\n\004Away\030\003 \003(\t\"p\n\006SAInfo\022\027\n\004type\030\001 \001("
+  "\0162\t.MATCH.SA\022\025\n\rduration_left\030\002 \001(\005\022 \n\030a"
+  "pplied_for_current_ball\030\003 \001(\010\022\024\n\014max_dur"
+  "ation\030\004 \001(\005\"\345\001\n\nM_UserInfo\022&\n\tplayState\030"
+  "\001 \001(\0162\023.MATCH.M_PlayStates\022/\n\017connection"
+  "State\030\002 \001(\0162\026.MATCH.ConnectionState\022\023\n\013o"
+  "pponentUID\030\003 \001(\t\022\027\n\003ack\030\004 \001(\0162\n.MATCH.AC"
+  "K\022\021\n\tauto_play\030\005 \001(\010\022\021\n\tmana_fill\030\006 \001(\005\022"
+  "\036\n\007sa_info\030\007 \001(\0132\r.MATCH.SAInfo\022\n\n\002id\030\010 "
+  "\001(\t\"\347\001\n\007M_TShot\022\n\n\002id\030\001 \001(\005\022\014\n\004name\030\002 \001("
+  "\t\022\013\n\003run\030\003 \001(\005\022 \n\007bracket\030\004 \001(\0162\017.MATCH."
+  "Brackets\022\023\n\013probability\030\005 \001(\002\022\025\n\rwicket_"
+  "chance\030\006 \001(\002\022\022\n\nball_value\030\007 \001(\001\022\022\n\nshot"
+  "_value\030\010 \001(\001\022\016\n\006locked\030\t \001(\010\022\023\n\013shot_hid"
+  "den\030\n \001(\010\022\032\n\022probability_hidden\030\013 \001(\010\"C\n"
+  "\013BracketData\022#\n\nbracket_id\030\001 \001(\0162\017.MATCH"
+  ".Brackets\022\017\n\007shot_id\030\002 \001(\005\"|\n\007M_TBall\022\n\n"
+  "\002id\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\022\r\n\005value\030\003 \001(\001\022\034"
+  "\n\005skull\030\004 \001(\0162\r.MATCH.Skulls\022*\n\016shots_po"
+  "ssible\030\005 \003(\0132\022.MATCH.BracketData\"P\n\010TOut"
+  "come\022&\n\007outcome\030\001 \001(\0162\025.PAYLOAD.ShotOutc"
+  "omes\022\014\n\004runs\030\002 \001(\005\022\016\n\006random\030\003 \001(\001\"\367\001\n\rM"
+  "_CurrentBall\022 \n\005state\030\001 \001(\0162\021.MATCH.Ball"
+  "States\022 \n\007outcome\030\002 \001(\0132\017.MATCH.TOutcome"
+  "\022\035\n\005shots\030\003 \003(\0132\016.MATCH.M_TShot\022\035\n\005balls"
+  "\030\004 \003(\0132\016.MATCH.M_TBall\022$\n\014selectedBall\030\005"
+  " \001(\0132\016.MATCH.M_TBall\022$\n\014selectedShot\030\006 \001"
+  "(\0132\016.MATCH.M_TShot\022\030\n\020over_ball_number\030\007"
+  " \001(\005\"\262\002\n\tM_Innings\022 \n\006inning\030\001 \001(\0162\020.PAY"
+  "LOAD.Innings\022\014\n\004runs\030\002 \001(\005\022\r\n\005balls\030\003 \001("
+  "\005\022\017\n\007wickets\030\004 \001(\005\022\023\n\013over_number\030\005 \001(\005\022"
+  "\032\n\022max_balls_per_over\030\006 \001(\005\022\021\n\tmax_overs"
+  "\030\007 \001(\005\022\030\n\020boundary_counter\030\010 \001(\005\022!\n\031gree"
+  "n_shot_missed_counter\030\t \001(\005\022\"\n\032yellow_sh"
+  "ot_missed_counter\030\n \001(\005\022\027\n\017user_on_batti"
+  "ng\030\013 \001(\t\022\027\n\017user_on_bowling\030\014 \001(\t\"\371\001\n\010IO"
+  "utcome\022\022\n\ntotal_runs\030\001 \001(\005\022\023\n\013total_ball"
+  "s\030\002 \001(\005\022\025\n\rwickets_taken\030\003 \001(\005\022\023\n\013runs_s"
+  "cored\030\004 \001(\005\022\034\n\024original_runs_scored\030\005 \001("
+  "\005\022#\n\nbracket_id\030\006 \001(\0162\017.MATCH.Brackets\022\030"
+  "\n\020over_ball_number\030\007 \001(\005\022\023\n\013over_number\030"
+  "\010 \001(\005\022&\n\007outcome\030\t \001(\0162\025.PAYLOAD.ShotOut"
+  "comes\"\360\001\n\013MatchPlayer\022\024\n\014character_id\030\001 "
+  "\001(\005\022\020\n\010nickname\030\002 \001(\t\022\024\n\014image_number\030\003 "
+  "\001(\005\022\r\n\005power\030\004 \001(\005\022\025\n\rlineup_number\030\005 \001("
+  "\005\022\016\n\006is_out\030\006 \001(\010\022\014\n\004used\030\007 \001(\010\022\014\n\004hits\030"
+  "\010 \001(\005\022\016\n\006misses\030\t \001(\005\022\016\n\006lhbrhb\030\n \001(\001\022\022\n"
+  "\nconfidence\030\013 \001(\001\022\035\n\006strike\030\014 \001(\0162\r.MATC"
+  "H.Strike\"\237\005\n\nMatchModel\022\017\n\007matchId\030\001 \001(\t"
+  "\022 \n\005users\030\002 \003(\0132\021.MATCH.M_UserInfo\022\014\n\004ho"
+  "me\030\003 \001(\t\022\014\n\004away\030\004 \001(\t\022$\n\tjoinState\030\005 \001("
+  "\0162\021.MATCH.JoinStates\022(\n\nmatchState\030\006 \001(\016"
+  "2\024.PAYLOAD.MatchStates\022(\n\016currentInnings"
+  "\030\007 \001(\0132\020.MATCH.M_Innings\022)\n\017previousInni"
+  "ngs\030\010 \001(\0132\020.MATCH.M_Innings\022\'\n\013home_line"
+  "up\030\t \003(\0132\022.MATCH.MatchPlayer\022\'\n\013away_lin"
+  "eup\030\n \003(\0132\022.MATCH.MatchPlayer\022)\n\013current"
+  "Ball\030\013 \001(\0132\024.MATCH.M_CurrentBall\022+\n\rprev"
+  "iousBalls\030\014 \003(\0132\024.MATCH.M_CurrentBall\0220\n"
+  "\024selectedFirstBatsman\030\r \001(\0132\022.MATCH.Matc"
+  "hPlayer\0221\n\025selectedSecondBatsman\030\016 \001(\0132\022"
+  ".MATCH.MatchPlayer\022*\n\016selectedBowler\030\017 \001"
+  "(\0132\022.MATCH.MatchPlayer\022&\n\rpreviousEvent\030"
+  "\020 \001(\0162\017.PAYLOAD.Events\022\026\n\016stateStartTime"
+  "\030\021 \001(\003\022\"\n\032both_disconnect_time_point\030\022 \001"
+  "(\003*S\n\016IPCMessageType\022\014\n\010IPC_NONE\020\000\022\034\n\030IP"
+  "C_CREATE_MATCH_REQUEST\020\001\022\025\n\021IPC_MATCH_RE"
+  "QUEST\020\002*K\n\014M_PlayStates\022\020\n\014M_MatchMaked\020"
   "\000\022\013\n\007M_Ready\020\001\022\r\n\tM_Bowling\020\002\022\r\n\tM_Batti"
   "ng\020\003*V\n\017ConnectionState\022\020\n\014NotConnected\020"
   "\000\022\r\n\tConnected\020\001\022\020\n\014Disconnected\020\002\022\020\n\014Re"
@@ -656,12 +687,13 @@ const char descriptor_table_protodef_match_2eproto[] PROTOBUF_SECTION_VARIABLE(p
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_match_2eproto_deps[1] = {
   &::descriptor_table_payload_2eproto,
 };
-static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_match_2eproto_sccs[15] = {
+static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_match_2eproto_sccs[16] = {
   &scc_info_BracketData_match_2eproto.base,
   &scc_info_CreateMatchRequest_match_2eproto.base,
   &scc_info_EndMatchRequest_match_2eproto.base,
   &scc_info_EndMatchUserData_match_2eproto.base,
   &scc_info_IOutcome_match_2eproto.base,
+  &scc_info_IPCMessage_match_2eproto.base,
   &scc_info_M_CurrentBall_match_2eproto.base,
   &scc_info_M_Innings_match_2eproto.base,
   &scc_info_M_TBall_match_2eproto.base,
@@ -675,18 +707,33 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_mat
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_match_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_match_2eproto = {
-  false, false, descriptor_table_protodef_match_2eproto, "match.proto", 4358,
-  &descriptor_table_match_2eproto_once, descriptor_table_match_2eproto_sccs, descriptor_table_match_2eproto_deps, 15, 1,
+  false, false, descriptor_table_protodef_match_2eproto, "match.proto", 4518,
+  &descriptor_table_match_2eproto_once, descriptor_table_match_2eproto_sccs, descriptor_table_match_2eproto_deps, 16, 1,
   schemas, file_default_instances, TableStruct_match_2eproto::offsets,
-  file_level_metadata_match_2eproto, 15, file_level_enum_descriptors_match_2eproto, file_level_service_descriptors_match_2eproto,
+  file_level_metadata_match_2eproto, 16, file_level_enum_descriptors_match_2eproto, file_level_service_descriptors_match_2eproto,
 };
 
 // Force running AddDescriptors() at dynamic initialization time.
 static bool dynamic_init_dummy_match_2eproto = (static_cast<void>(::PROTOBUF_NAMESPACE_ID::internal::AddDescriptors(&descriptor_table_match_2eproto)), true);
 namespace MATCH {
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* M_PlayStates_descriptor() {
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* IPCMessageType_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_match_2eproto);
   return file_level_enum_descriptors_match_2eproto[0];
+}
+bool IPCMessageType_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+    case 2:
+      return true;
+    default:
+      return false;
+  }
+}
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* M_PlayStates_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_match_2eproto);
+  return file_level_enum_descriptors_match_2eproto[1];
 }
 bool M_PlayStates_IsValid(int value) {
   switch (value) {
@@ -702,7 +749,7 @@ bool M_PlayStates_IsValid(int value) {
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ConnectionState_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_match_2eproto);
-  return file_level_enum_descriptors_match_2eproto[1];
+  return file_level_enum_descriptors_match_2eproto[2];
 }
 bool ConnectionState_IsValid(int value) {
   switch (value) {
@@ -718,7 +765,7 @@ bool ConnectionState_IsValid(int value) {
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ACK_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_match_2eproto);
-  return file_level_enum_descriptors_match_2eproto[2];
+  return file_level_enum_descriptors_match_2eproto[3];
 }
 bool ACK_IsValid(int value) {
   switch (value) {
@@ -742,7 +789,7 @@ bool ACK_IsValid(int value) {
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* JoinStates_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_match_2eproto);
-  return file_level_enum_descriptors_match_2eproto[3];
+  return file_level_enum_descriptors_match_2eproto[4];
 }
 bool JoinStates_IsValid(int value) {
   switch (value) {
@@ -758,7 +805,7 @@ bool JoinStates_IsValid(int value) {
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* BallStates_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_match_2eproto);
-  return file_level_enum_descriptors_match_2eproto[4];
+  return file_level_enum_descriptors_match_2eproto[5];
 }
 bool BallStates_IsValid(int value) {
   switch (value) {
@@ -775,7 +822,7 @@ bool BallStates_IsValid(int value) {
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* Brackets_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_match_2eproto);
-  return file_level_enum_descriptors_match_2eproto[5];
+  return file_level_enum_descriptors_match_2eproto[6];
 }
 bool Brackets_IsValid(int value) {
   switch (value) {
@@ -793,7 +840,7 @@ bool Brackets_IsValid(int value) {
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* Skulls_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_match_2eproto);
-  return file_level_enum_descriptors_match_2eproto[6];
+  return file_level_enum_descriptors_match_2eproto[7];
 }
 bool Skulls_IsValid(int value) {
   switch (value) {
@@ -809,7 +856,7 @@ bool Skulls_IsValid(int value) {
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SA_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_match_2eproto);
-  return file_level_enum_descriptors_match_2eproto[7];
+  return file_level_enum_descriptors_match_2eproto[8];
 }
 bool SA_IsValid(int value) {
   switch (value) {
@@ -843,7 +890,7 @@ bool SA_IsValid(int value) {
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* Strike_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_match_2eproto);
-  return file_level_enum_descriptors_match_2eproto[8];
+  return file_level_enum_descriptors_match_2eproto[9];
 }
 bool Strike_IsValid(int value) {
   switch (value) {
@@ -854,6 +901,238 @@ bool Strike_IsValid(int value) {
     default:
       return false;
   }
+}
+
+
+// ===================================================================
+
+void IPCMessage::InitAsDefaultInstance() {
+}
+class IPCMessage::_Internal {
+ public:
+};
+
+IPCMessage::IPCMessage(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:MATCH.IPCMessage)
+}
+IPCMessage::IPCMessage(const IPCMessage& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  serializeddata_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_serializeddata().empty()) {
+    serializeddata_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_serializeddata(),
+      GetArena());
+  }
+  type_ = from.type_;
+  // @@protoc_insertion_point(copy_constructor:MATCH.IPCMessage)
+}
+
+void IPCMessage::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_IPCMessage_match_2eproto.base);
+  serializeddata_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  type_ = 0;
+}
+
+IPCMessage::~IPCMessage() {
+  // @@protoc_insertion_point(destructor:MATCH.IPCMessage)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void IPCMessage::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+  serializeddata_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+
+void IPCMessage::ArenaDtor(void* object) {
+  IPCMessage* _this = reinterpret_cast< IPCMessage* >(object);
+  (void)_this;
+}
+void IPCMessage::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void IPCMessage::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const IPCMessage& IPCMessage::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_IPCMessage_match_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void IPCMessage::Clear() {
+// @@protoc_insertion_point(message_clear_start:MATCH.IPCMessage)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  serializeddata_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  type_ = 0;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* IPCMessage::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // .MATCH.IPCMessageType type = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          _internal_set_type(static_cast<::MATCH::IPCMessageType>(val));
+        } else goto handle_unusual;
+        continue;
+      // bytes serializedData = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          auto str = _internal_mutable_serializeddata();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* IPCMessage::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:MATCH.IPCMessage)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .MATCH.IPCMessageType type = 1;
+  if (this->type() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+      1, this->_internal_type(), target);
+  }
+
+  // bytes serializedData = 2;
+  if (this->serializeddata().size() > 0) {
+    target = stream->WriteBytesMaybeAliased(
+        2, this->_internal_serializeddata(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:MATCH.IPCMessage)
+  return target;
+}
+
+size_t IPCMessage::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:MATCH.IPCMessage)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // bytes serializedData = 2;
+  if (this->serializeddata().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+        this->_internal_serializeddata());
+  }
+
+  // .MATCH.IPCMessageType type = 1;
+  if (this->type() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_type());
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void IPCMessage::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:MATCH.IPCMessage)
+  GOOGLE_DCHECK_NE(&from, this);
+  const IPCMessage* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<IPCMessage>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:MATCH.IPCMessage)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:MATCH.IPCMessage)
+    MergeFrom(*source);
+  }
+}
+
+void IPCMessage::MergeFrom(const IPCMessage& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:MATCH.IPCMessage)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.serializeddata().size() > 0) {
+    _internal_set_serializeddata(from._internal_serializeddata());
+  }
+  if (from.type() != 0) {
+    _internal_set_type(from._internal_type());
+  }
+}
+
+void IPCMessage::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:MATCH.IPCMessage)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void IPCMessage::CopyFrom(const IPCMessage& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:MATCH.IPCMessage)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool IPCMessage::IsInitialized() const {
+  return true;
+}
+
+void IPCMessage::InternalSwap(IPCMessage* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  serializeddata_.Swap(&other->serializeddata_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  swap(type_, other->type_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata IPCMessage::GetMetadata() const {
+  return GetMetadataStatic();
 }
 
 
@@ -6902,6 +7181,9 @@ void MatchModel::InternalSwap(MatchModel* other) {
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace MATCH
 PROTOBUF_NAMESPACE_OPEN
+template<> PROTOBUF_NOINLINE ::MATCH::IPCMessage* Arena::CreateMaybeMessage< ::MATCH::IPCMessage >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::MATCH::IPCMessage >(arena);
+}
 template<> PROTOBUF_NOINLINE ::MATCH::CreateMatchRequest* Arena::CreateMaybeMessage< ::MATCH::CreateMatchRequest >(Arena* arena) {
   return Arena::CreateMessageInternal< ::MATCH::CreateMatchRequest >(arena);
 }

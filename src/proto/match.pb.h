@@ -49,7 +49,7 @@ struct TableStruct_match_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxillaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[15]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[16]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -72,6 +72,9 @@ extern EndMatchUserDataDefaultTypeInternal _EndMatchUserData_default_instance_;
 class IOutcome;
 class IOutcomeDefaultTypeInternal;
 extern IOutcomeDefaultTypeInternal _IOutcome_default_instance_;
+class IPCMessage;
+class IPCMessageDefaultTypeInternal;
+extern IPCMessageDefaultTypeInternal _IPCMessage_default_instance_;
 class M_CurrentBall;
 class M_CurrentBallDefaultTypeInternal;
 extern M_CurrentBallDefaultTypeInternal _M_CurrentBall_default_instance_;
@@ -109,6 +112,7 @@ template<> ::MATCH::CreateMatchRequest* Arena::CreateMaybeMessage<::MATCH::Creat
 template<> ::MATCH::EndMatchRequest* Arena::CreateMaybeMessage<::MATCH::EndMatchRequest>(Arena*);
 template<> ::MATCH::EndMatchUserData* Arena::CreateMaybeMessage<::MATCH::EndMatchUserData>(Arena*);
 template<> ::MATCH::IOutcome* Arena::CreateMaybeMessage<::MATCH::IOutcome>(Arena*);
+template<> ::MATCH::IPCMessage* Arena::CreateMaybeMessage<::MATCH::IPCMessage>(Arena*);
 template<> ::MATCH::M_CurrentBall* Arena::CreateMaybeMessage<::MATCH::M_CurrentBall>(Arena*);
 template<> ::MATCH::M_Innings* Arena::CreateMaybeMessage<::MATCH::M_Innings>(Arena*);
 template<> ::MATCH::M_TBall* Arena::CreateMaybeMessage<::MATCH::M_TBall>(Arena*);
@@ -122,6 +126,32 @@ template<> ::MATCH::TOutcome* Arena::CreateMaybeMessage<::MATCH::TOutcome>(Arena
 PROTOBUF_NAMESPACE_CLOSE
 namespace MATCH {
 
+enum IPCMessageType : int {
+  IPC_NONE = 0,
+  IPC_CREATE_MATCH_REQUEST = 1,
+  IPC_MATCH_REQUEST = 2,
+  IPCMessageType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::min(),
+  IPCMessageType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::max()
+};
+bool IPCMessageType_IsValid(int value);
+constexpr IPCMessageType IPCMessageType_MIN = IPC_NONE;
+constexpr IPCMessageType IPCMessageType_MAX = IPC_MATCH_REQUEST;
+constexpr int IPCMessageType_ARRAYSIZE = IPCMessageType_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* IPCMessageType_descriptor();
+template<typename T>
+inline const std::string& IPCMessageType_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, IPCMessageType>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function IPCMessageType_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    IPCMessageType_descriptor(), enum_t_value);
+}
+inline bool IPCMessageType_Parse(
+    const std::string& name, IPCMessageType* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<IPCMessageType>(
+    IPCMessageType_descriptor(), name, value);
+}
 enum M_PlayStates : int {
   M_MatchMaked = 0,
   M_Ready = 1,
@@ -395,6 +425,170 @@ inline bool Strike_Parse(
 }
 // ===================================================================
 
+class IPCMessage PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:MATCH.IPCMessage) */ {
+ public:
+  inline IPCMessage() : IPCMessage(nullptr) {};
+  virtual ~IPCMessage();
+
+  IPCMessage(const IPCMessage& from);
+  IPCMessage(IPCMessage&& from) noexcept
+    : IPCMessage() {
+    *this = ::std::move(from);
+  }
+
+  inline IPCMessage& operator=(const IPCMessage& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline IPCMessage& operator=(IPCMessage&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const IPCMessage& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const IPCMessage* internal_default_instance() {
+    return reinterpret_cast<const IPCMessage*>(
+               &_IPCMessage_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    0;
+
+  friend void swap(IPCMessage& a, IPCMessage& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(IPCMessage* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(IPCMessage* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline IPCMessage* New() const final {
+    return CreateMaybeMessage<IPCMessage>(nullptr);
+  }
+
+  IPCMessage* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<IPCMessage>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const IPCMessage& from);
+  void MergeFrom(const IPCMessage& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(IPCMessage* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "MATCH.IPCMessage";
+  }
+  protected:
+  explicit IPCMessage(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_match_2eproto);
+    return ::descriptor_table_match_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kSerializedDataFieldNumber = 2,
+    kTypeFieldNumber = 1,
+  };
+  // bytes serializedData = 2;
+  void clear_serializeddata();
+  const std::string& serializeddata() const;
+  void set_serializeddata(const std::string& value);
+  void set_serializeddata(std::string&& value);
+  void set_serializeddata(const char* value);
+  void set_serializeddata(const void* value, size_t size);
+  std::string* mutable_serializeddata();
+  std::string* release_serializeddata();
+  void set_allocated_serializeddata(std::string* serializeddata);
+  GOOGLE_PROTOBUF_RUNTIME_DEPRECATED("The unsafe_arena_ accessors for"
+  "    string fields are deprecated and will be removed in a"
+  "    future release.")
+  std::string* unsafe_arena_release_serializeddata();
+  GOOGLE_PROTOBUF_RUNTIME_DEPRECATED("The unsafe_arena_ accessors for"
+  "    string fields are deprecated and will be removed in a"
+  "    future release.")
+  void unsafe_arena_set_allocated_serializeddata(
+      std::string* serializeddata);
+  private:
+  const std::string& _internal_serializeddata() const;
+  void _internal_set_serializeddata(const std::string& value);
+  std::string* _internal_mutable_serializeddata();
+  public:
+
+  // .MATCH.IPCMessageType type = 1;
+  void clear_type();
+  ::MATCH::IPCMessageType type() const;
+  void set_type(::MATCH::IPCMessageType value);
+  private:
+  ::MATCH::IPCMessageType _internal_type() const;
+  void _internal_set_type(::MATCH::IPCMessageType value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:MATCH.IPCMessage)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr serializeddata_;
+  int type_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_match_2eproto;
+};
+// -------------------------------------------------------------------
+
 class CreateMatchRequest PROTOBUF_FINAL :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:MATCH.CreateMatchRequest) */ {
  public:
@@ -437,7 +631,7 @@ class CreateMatchRequest PROTOBUF_FINAL :
                &_CreateMatchRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    0;
+    1;
 
   friend void swap(CreateMatchRequest& a, CreateMatchRequest& b) {
     a.Swap(&b);
@@ -799,7 +993,7 @@ class EndMatchRequest PROTOBUF_FINAL :
                &_EndMatchRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    1;
+    2;
 
   friend void swap(EndMatchRequest& a, EndMatchRequest& b) {
     a.Swap(&b);
@@ -1019,7 +1213,7 @@ class EndMatchUserData PROTOBUF_FINAL :
                &_EndMatchUserData_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    2;
+    3;
 
   friend void swap(EndMatchUserData& a, EndMatchUserData& b) {
     a.Swap(&b);
@@ -1216,7 +1410,7 @@ class MatchList PROTOBUF_FINAL :
                &_MatchList_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    3;
+    4;
 
   friend void swap(MatchList& a, MatchList& b) {
     a.Swap(&b);
@@ -1420,7 +1614,7 @@ class SAInfo PROTOBUF_FINAL :
                &_SAInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    4;
+    5;
 
   friend void swap(SAInfo& a, SAInfo& b) {
     a.Swap(&b);
@@ -1590,7 +1784,7 @@ class M_UserInfo PROTOBUF_FINAL :
                &_M_UserInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    5;
+    6;
 
   friend void swap(M_UserInfo& a, M_UserInfo& b) {
     a.Swap(&b);
@@ -1845,7 +2039,7 @@ class M_TShot PROTOBUF_FINAL :
                &_M_TShot_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    6;
+    7;
 
   friend void swap(M_TShot& a, M_TShot& b) {
     a.Swap(&b);
@@ -2108,7 +2302,7 @@ class BracketData PROTOBUF_FINAL :
                &_BracketData_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    7;
+    8;
 
   friend void swap(BracketData& a, BracketData& b) {
     a.Swap(&b);
@@ -2256,7 +2450,7 @@ class M_TBall PROTOBUF_FINAL :
                &_M_TBall_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    8;
+    9;
 
   friend void swap(M_TBall& a, M_TBall& b) {
     a.Swap(&b);
@@ -2462,7 +2656,7 @@ class TOutcome PROTOBUF_FINAL :
                &_TOutcome_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    9;
+    10;
 
   friend void swap(TOutcome& a, TOutcome& b) {
     a.Swap(&b);
@@ -2621,7 +2815,7 @@ class M_CurrentBall PROTOBUF_FINAL :
                &_M_CurrentBall_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    10;
+    11;
 
   friend void swap(M_CurrentBall& a, M_CurrentBall& b) {
     a.Swap(&b);
@@ -2869,7 +3063,7 @@ class M_Innings PROTOBUF_FINAL :
                &_M_Innings_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    11;
+    12;
 
   friend void swap(M_Innings& a, M_Innings& b) {
     a.Swap(&b);
@@ -3159,7 +3353,7 @@ class IOutcome PROTOBUF_FINAL :
                &_IOutcome_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    12;
+    13;
 
   friend void swap(IOutcome& a, IOutcome& b) {
     a.Swap(&b);
@@ -3384,7 +3578,7 @@ class MatchPlayer PROTOBUF_FINAL :
                &_MatchPlayer_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    13;
+    14;
 
   friend void swap(MatchPlayer& a, MatchPlayer& b) {
     a.Swap(&b);
@@ -3658,7 +3852,7 @@ class MatchModel PROTOBUF_FINAL :
                &_MatchModel_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    14;
+    15;
 
   friend void swap(MatchModel& a, MatchModel& b) {
     a.Swap(&b);
@@ -4085,6 +4279,111 @@ class MatchModel PROTOBUF_FINAL :
   #pragma GCC diagnostic push
   #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #endif  // __GNUC__
+// IPCMessage
+
+// .MATCH.IPCMessageType type = 1;
+inline void IPCMessage::clear_type() {
+  type_ = 0;
+}
+inline ::MATCH::IPCMessageType IPCMessage::_internal_type() const {
+  return static_cast< ::MATCH::IPCMessageType >(type_);
+}
+inline ::MATCH::IPCMessageType IPCMessage::type() const {
+  // @@protoc_insertion_point(field_get:MATCH.IPCMessage.type)
+  return _internal_type();
+}
+inline void IPCMessage::_internal_set_type(::MATCH::IPCMessageType value) {
+  
+  type_ = value;
+}
+inline void IPCMessage::set_type(::MATCH::IPCMessageType value) {
+  _internal_set_type(value);
+  // @@protoc_insertion_point(field_set:MATCH.IPCMessage.type)
+}
+
+// bytes serializedData = 2;
+inline void IPCMessage::clear_serializeddata() {
+  serializeddata_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline const std::string& IPCMessage::serializeddata() const {
+  // @@protoc_insertion_point(field_get:MATCH.IPCMessage.serializedData)
+  return _internal_serializeddata();
+}
+inline void IPCMessage::set_serializeddata(const std::string& value) {
+  _internal_set_serializeddata(value);
+  // @@protoc_insertion_point(field_set:MATCH.IPCMessage.serializedData)
+}
+inline std::string* IPCMessage::mutable_serializeddata() {
+  // @@protoc_insertion_point(field_mutable:MATCH.IPCMessage.serializedData)
+  return _internal_mutable_serializeddata();
+}
+inline const std::string& IPCMessage::_internal_serializeddata() const {
+  return serializeddata_.Get();
+}
+inline void IPCMessage::_internal_set_serializeddata(const std::string& value) {
+  
+  serializeddata_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value, GetArena());
+}
+inline void IPCMessage::set_serializeddata(std::string&& value) {
+  
+  serializeddata_.Set(
+    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:MATCH.IPCMessage.serializedData)
+}
+inline void IPCMessage::set_serializeddata(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  serializeddata_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value),
+              GetArena());
+  // @@protoc_insertion_point(field_set_char:MATCH.IPCMessage.serializedData)
+}
+inline void IPCMessage::set_serializeddata(const void* value,
+    size_t size) {
+  
+  serializeddata_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:MATCH.IPCMessage.serializedData)
+}
+inline std::string* IPCMessage::_internal_mutable_serializeddata() {
+  
+  return serializeddata_.Mutable(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline std::string* IPCMessage::release_serializeddata() {
+  // @@protoc_insertion_point(field_release:MATCH.IPCMessage.serializedData)
+  return serializeddata_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void IPCMessage::set_allocated_serializeddata(std::string* serializeddata) {
+  if (serializeddata != nullptr) {
+    
+  } else {
+    
+  }
+  serializeddata_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), serializeddata,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:MATCH.IPCMessage.serializedData)
+}
+inline std::string* IPCMessage::unsafe_arena_release_serializeddata() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:MATCH.IPCMessage.serializedData)
+  GOOGLE_DCHECK(GetArena() != nullptr);
+  
+  return serializeddata_.UnsafeArenaRelease(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      GetArena());
+}
+inline void IPCMessage::unsafe_arena_set_allocated_serializeddata(
+    std::string* serializeddata) {
+  GOOGLE_DCHECK(GetArena() != nullptr);
+  if (serializeddata != nullptr) {
+    
+  } else {
+    
+  }
+  serializeddata_.UnsafeArenaSetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      serializeddata, GetArena());
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:MATCH.IPCMessage.serializedData)
+}
+
+// -------------------------------------------------------------------
+
 // CreateMatchRequest
 
 // string matchId = 1;
@@ -8610,6 +8909,8 @@ inline void MatchModel::set_both_disconnect_time_point(::PROTOBUF_NAMESPACE_ID::
 
 // -------------------------------------------------------------------
 
+// -------------------------------------------------------------------
+
 
 // @@protoc_insertion_point(namespace_scope)
 
@@ -8617,6 +8918,11 @@ inline void MatchModel::set_both_disconnect_time_point(::PROTOBUF_NAMESPACE_ID::
 
 PROTOBUF_NAMESPACE_OPEN
 
+template <> struct is_proto_enum< ::MATCH::IPCMessageType> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::MATCH::IPCMessageType>() {
+  return ::MATCH::IPCMessageType_descriptor();
+}
 template <> struct is_proto_enum< ::MATCH::M_PlayStates> : ::std::true_type {};
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::MATCH::M_PlayStates>() {

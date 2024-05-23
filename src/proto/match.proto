@@ -4,6 +4,17 @@ import "payload.proto";
 option csharp_namespace="Superstars.Match";
 option go_package = "pb/mitsuko/match";
 
+enum IPCMessageType {
+    IPC_NONE = 0;
+    IPC_CREATE_MATCH_REQUEST = 1;
+    IPC_MATCH_REQUEST = 2;
+}
+
+message IPCMessage {
+    IPCMessageType type = 1;
+    bytes serializedData = 2;
+}
+
 message CreateMatchRequest {
     string matchId = 1;
     string homeUserId = 2;
