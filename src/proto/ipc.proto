@@ -9,5 +9,5 @@ enum IPCMessageType {
 
 message IPCMessage {
     IPCMessageType type = 1;
-    bytes serializedData = 2;
+    bytes data = 2;
 }

@@ -45,7 +45,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_ipc_2eproto::offsets[] PROTOBU
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::IPC::IPCMessage, type_),
-  PROTOBUF_FIELD_OFFSET(::IPC::IPCMessage, serializeddata_),
+  PROTOBUF_FIELD_OFFSET(::IPC::IPCMessage, data_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::IPC::IPCMessage)},
@@ -56,11 +56,11 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
 };
 
 const char descriptor_table_protodef_ipc_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
-  "\n\tipc.proto\022\003IPC\"G\n\nIPCMessage\022!\n\004type\030\001"
-  " \001(\0162\023.IPC.IPCMessageType\022\026\n\016serializedD"
-  "ata\030\002 \001(\014*S\n\016IPCMessageType\022\014\n\010IPC_NONE\020"
-  "\000\022\034\n\030IPC_CREATE_MATCH_REQUEST\020\001\022\025\n\021IPC_M"
-  "ATCH_REQUEST\020\002b\006proto3"
+  "\n\tipc.proto\022\003IPC\"=\n\nIPCMessage\022!\n\004type\030\001"
+  " \001(\0162\023.IPC.IPCMessageType\022\014\n\004data\030\002 \001(\014*"
+  "S\n\016IPCMessageType\022\014\n\010IPC_NONE\020\000\022\034\n\030IPC_C"
+  "REATE_MATCH_REQUEST\020\001\022\025\n\021IPC_MATCH_REQUE"
+  "ST\020\002b\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_ipc_2eproto_deps[1] = {
 };
@@ -69,7 +69,7 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_ipc
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_ipc_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_ipc_2eproto = {
-  false, false, descriptor_table_protodef_ipc_2eproto, "ipc.proto", 182,
+  false, false, descriptor_table_protodef_ipc_2eproto, "ipc.proto", 172,
   &descriptor_table_ipc_2eproto_once, descriptor_table_ipc_2eproto_sccs, descriptor_table_ipc_2eproto_deps, 1, 0,
   schemas, file_default_instances, TableStruct_ipc_2eproto::offsets,
   file_level_metadata_ipc_2eproto, 1, file_level_enum_descriptors_ipc_2eproto, file_level_service_descriptors_ipc_2eproto,
@@ -111,9 +111,9 @@ IPCMessage::IPCMessage(::PROTOBUF_NAMESPACE_ID::Arena* arena)
 IPCMessage::IPCMessage(const IPCMessage& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  serializeddata_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (!from._internal_serializeddata().empty()) {
-    serializeddata_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_serializeddata(),
+  data_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_data().empty()) {
+    data_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_data(),
       GetArena());
   }
   type_ = from.type_;
@@ -122,7 +122,7 @@ IPCMessage::IPCMessage(const IPCMessage& from)
 
 void IPCMessage::SharedCtor() {
   ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_IPCMessage_ipc_2eproto.base);
-  serializeddata_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  data_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   type_ = 0;
 }
 
@@ -134,7 +134,7 @@ IPCMessage::~IPCMessage() {
 
 void IPCMessage::SharedDtor() {
   GOOGLE_DCHECK(GetArena() == nullptr);
-  serializeddata_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  data_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
 void IPCMessage::ArenaDtor(void* object) {
@@ -158,7 +158,7 @@ void IPCMessage::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  serializeddata_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  data_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   type_ = 0;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -179,10 +179,10 @@ const char* IPCMessage::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID:
           _internal_set_type(static_cast<::IPC::IPCMessageType>(val));
         } else goto handle_unusual;
         continue;
-      // bytes serializedData = 2;
+      // bytes data = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
-          auto str = _internal_mutable_serializeddata();
+          auto str = _internal_mutable_data();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
         } else goto handle_unusual;
@@ -222,10 +222,10 @@ failure:
       1, this->_internal_type(), target);
   }
 
-  // bytes serializedData = 2;
-  if (this->serializeddata().size() > 0) {
+  // bytes data = 2;
+  if (this->data().size() > 0) {
     target = stream->WriteBytesMaybeAliased(
-        2, this->_internal_serializeddata(), target);
+        2, this->_internal_data(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -244,11 +244,11 @@ size_t IPCMessage::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // bytes serializedData = 2;
-  if (this->serializeddata().size() > 0) {
+  // bytes data = 2;
+  if (this->data().size() > 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
-        this->_internal_serializeddata());
+        this->_internal_data());
   }
 
   // .IPC.IPCMessageType type = 1;
@@ -288,8 +288,8 @@ void IPCMessage::MergeFrom(const IPCMessage& from) {
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.serializeddata().size() > 0) {
-    _internal_set_serializeddata(from._internal_serializeddata());
+  if (from.data().size() > 0) {
+    _internal_set_data(from._internal_data());
   }
   if (from.type() != 0) {
     _internal_set_type(from._internal_type());
@@ -317,7 +317,7 @@ bool IPCMessage::IsInitialized() const {
 void IPCMessage::InternalSwap(IPCMessage* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  serializeddata_.Swap(&other->serializeddata_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  data_.Swap(&other->data_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   swap(type_, other->type_);
 }
 

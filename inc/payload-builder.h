@@ -34,6 +34,7 @@ private:
     std::string _msg = "";
     PAYLOAD::Events _event = PAYLOAD::Events::NONE;
 
+
     std::unique_ptr<google::protobuf::Arena> _arena;
 
 };

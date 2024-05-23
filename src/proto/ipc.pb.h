@@ -206,32 +206,32 @@ class IPCMessage PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kSerializedDataFieldNumber = 2,
+    kDataFieldNumber = 2,
     kTypeFieldNumber = 1,
   };
-  // bytes serializedData = 2;
-  void clear_serializeddata();
-  const std::string& serializeddata() const;
-  void set_serializeddata(const std::string& value);
-  void set_serializeddata(std::string&& value);
-  void set_serializeddata(const char* value);
-  void set_serializeddata(const void* value, size_t size);
-  std::string* mutable_serializeddata();
-  std::string* release_serializeddata();
-  void set_allocated_serializeddata(std::string* serializeddata);
+  // bytes data = 2;
+  void clear_data();
+  const std::string& data() const;
+  void set_data(const std::string& value);
+  void set_data(std::string&& value);
+  void set_data(const char* value);
+  void set_data(const void* value, size_t size);
+  std::string* mutable_data();
+  std::string* release_data();
+  void set_allocated_data(std::string* data);
   GOOGLE_PROTOBUF_RUNTIME_DEPRECATED("The unsafe_arena_ accessors for"
   "    string fields are deprecated and will be removed in a"
   "    future release.")
-  std::string* unsafe_arena_release_serializeddata();
+  std::string* unsafe_arena_release_data();
   GOOGLE_PROTOBUF_RUNTIME_DEPRECATED("The unsafe_arena_ accessors for"
   "    string fields are deprecated and will be removed in a"
   "    future release.")
-  void unsafe_arena_set_allocated_serializeddata(
-      std::string* serializeddata);
+  void unsafe_arena_set_allocated_data(
+      std::string* data);
   private:
-  const std::string& _internal_serializeddata() const;
-  void _internal_set_serializeddata(const std::string& value);
-  std::string* _internal_mutable_serializeddata();
+  const std::string& _internal_data() const;
+  void _internal_set_data(const std::string& value);
+  std::string* _internal_mutable_data();
   public:
 
   // .IPC.IPCMessageType type = 1;
@@ -250,7 +250,7 @@ class IPCMessage PROTOBUF_FINAL :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr serializeddata_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr data_;
   int type_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ipc_2eproto;
@@ -286,85 +286,85 @@ inline void IPCMessage::set_type(::IPC::IPCMessageType value) {
   // @@protoc_insertion_point(field_set:IPC.IPCMessage.type)
 }
 
-// bytes serializedData = 2;
-inline void IPCMessage::clear_serializeddata() {
-  serializeddata_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+// bytes data = 2;
+inline void IPCMessage::clear_data() {
+  data_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
 }
-inline const std::string& IPCMessage::serializeddata() const {
-  // @@protoc_insertion_point(field_get:IPC.IPCMessage.serializedData)
-  return _internal_serializeddata();
+inline const std::string& IPCMessage::data() const {
+  // @@protoc_insertion_point(field_get:IPC.IPCMessage.data)
+  return _internal_data();
 }
-inline void IPCMessage::set_serializeddata(const std::string& value) {
-  _internal_set_serializeddata(value);
-  // @@protoc_insertion_point(field_set:IPC.IPCMessage.serializedData)
+inline void IPCMessage::set_data(const std::string& value) {
+  _internal_set_data(value);
+  // @@protoc_insertion_point(field_set:IPC.IPCMessage.data)
 }
-inline std::string* IPCMessage::mutable_serializeddata() {
-  // @@protoc_insertion_point(field_mutable:IPC.IPCMessage.serializedData)
-  return _internal_mutable_serializeddata();
+inline std::string* IPCMessage::mutable_data() {
+  // @@protoc_insertion_point(field_mutable:IPC.IPCMessage.data)
+  return _internal_mutable_data();
 }
-inline const std::string& IPCMessage::_internal_serializeddata() const {
-  return serializeddata_.Get();
+inline const std::string& IPCMessage::_internal_data() const {
+  return data_.Get();
 }
-inline void IPCMessage::_internal_set_serializeddata(const std::string& value) {
+inline void IPCMessage::_internal_set_data(const std::string& value) {
   
-  serializeddata_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value, GetArena());
+  data_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value, GetArena());
 }
-inline void IPCMessage::set_serializeddata(std::string&& value) {
+inline void IPCMessage::set_data(std::string&& value) {
   
-  serializeddata_.Set(
+  data_.Set(
     &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value), GetArena());
-  // @@protoc_insertion_point(field_set_rvalue:IPC.IPCMessage.serializedData)
+  // @@protoc_insertion_point(field_set_rvalue:IPC.IPCMessage.data)
 }
-inline void IPCMessage::set_serializeddata(const char* value) {
+inline void IPCMessage::set_data(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
-  serializeddata_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value),
+  data_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value),
               GetArena());
-  // @@protoc_insertion_point(field_set_char:IPC.IPCMessage.serializedData)
+  // @@protoc_insertion_point(field_set_char:IPC.IPCMessage.data)
 }
-inline void IPCMessage::set_serializeddata(const void* value,
+inline void IPCMessage::set_data(const void* value,
     size_t size) {
   
-  serializeddata_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(
+  data_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(
       reinterpret_cast<const char*>(value), size), GetArena());
-  // @@protoc_insertion_point(field_set_pointer:IPC.IPCMessage.serializedData)
+  // @@protoc_insertion_point(field_set_pointer:IPC.IPCMessage.data)
 }
-inline std::string* IPCMessage::_internal_mutable_serializeddata() {
+inline std::string* IPCMessage::_internal_mutable_data() {
   
-  return serializeddata_.Mutable(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  return data_.Mutable(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
 }
-inline std::string* IPCMessage::release_serializeddata() {
-  // @@protoc_insertion_point(field_release:IPC.IPCMessage.serializedData)
-  return serializeddata_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+inline std::string* IPCMessage::release_data() {
+  // @@protoc_insertion_point(field_release:IPC.IPCMessage.data)
+  return data_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
 }
-inline void IPCMessage::set_allocated_serializeddata(std::string* serializeddata) {
-  if (serializeddata != nullptr) {
+inline void IPCMessage::set_allocated_data(std::string* data) {
+  if (data != nullptr) {
     
   } else {
     
   }
-  serializeddata_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), serializeddata,
+  data_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), data,
       GetArena());
-  // @@protoc_insertion_point(field_set_allocated:IPC.IPCMessage.serializedData)
+  // @@protoc_insertion_point(field_set_allocated:IPC.IPCMessage.data)
 }
-inline std::string* IPCMessage::unsafe_arena_release_serializeddata() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:IPC.IPCMessage.serializedData)
+inline std::string* IPCMessage::unsafe_arena_release_data() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:IPC.IPCMessage.data)
   GOOGLE_DCHECK(GetArena() != nullptr);
   
-  return serializeddata_.UnsafeArenaRelease(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+  return data_.UnsafeArenaRelease(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
       GetArena());
 }
-inline void IPCMessage::unsafe_arena_set_allocated_serializeddata(
-    std::string* serializeddata) {
+inline void IPCMessage::unsafe_arena_set_allocated_data(
+    std::string* data) {
   GOOGLE_DCHECK(GetArena() != nullptr);
-  if (serializeddata != nullptr) {
+  if (data != nullptr) {
     
   } else {
     
   }
-  serializeddata_.UnsafeArenaSetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-      serializeddata, GetArena());
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IPC.IPCMessage.serializedData)
+  data_.UnsafeArenaSetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      data, GetArena());
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IPC.IPCMessage.data)
 }
 
 #ifdef __GNUC__
