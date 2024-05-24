@@ -58,9 +58,10 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
 const char descriptor_table_protodef_ipc_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\tipc.proto\022\003IPC\"=\n\nIPCMessage\022!\n\004type\030\001"
   " \001(\0162\023.IPC.IPCMessageType\022\014\n\004data\030\002 \001(\014*"
-  "S\n\016IPCMessageType\022\014\n\010IPC_NONE\020\000\022\034\n\030IPC_C"
-  "REATE_MATCH_REQUEST\020\001\022\025\n\021IPC_MATCH_REQUE"
-  "ST\020\002b\006proto3"
+  "p\n\016IPCMessageType\022\014\n\010IPC_NONE\020\000\022\034\n\030IPC_C"
+  "REATE_MATCH_REQUEST\020\001\022\030\n\024IPC_P0_MATCH_RE"
+  "QUEST\020\002\022\030\n\024IPC_P1_MATCH_REQUEST\020\003b\006proto"
+  "3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_ipc_2eproto_deps[1] = {
 };
@@ -69,7 +70,7 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_ipc
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_ipc_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_ipc_2eproto = {
-  false, false, descriptor_table_protodef_ipc_2eproto, "ipc.proto", 172,
+  false, false, descriptor_table_protodef_ipc_2eproto, "ipc.proto", 201,
   &descriptor_table_ipc_2eproto_once, descriptor_table_ipc_2eproto_sccs, descriptor_table_ipc_2eproto_deps, 1, 0,
   schemas, file_default_instances, TableStruct_ipc_2eproto::offsets,
   file_level_metadata_ipc_2eproto, 1, file_level_enum_descriptors_ipc_2eproto, file_level_service_descriptors_ipc_2eproto,
@@ -87,6 +88,7 @@ bool IPCMessageType_IsValid(int value) {
     case 0:
     case 1:
     case 2:
+    case 3:
       return true;
     default:
       return false;

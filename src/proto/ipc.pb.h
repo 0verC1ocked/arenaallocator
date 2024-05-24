@@ -68,13 +68,14 @@ namespace IPC {
 enum IPCMessageType : int {
   IPC_NONE = 0,
   IPC_CREATE_MATCH_REQUEST = 1,
-  IPC_MATCH_REQUEST = 2,
+  IPC_P0_MATCH_REQUEST = 2,
+  IPC_P1_MATCH_REQUEST = 3,
   IPCMessageType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::min(),
   IPCMessageType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::max()
 };
 bool IPCMessageType_IsValid(int value);
 constexpr IPCMessageType IPCMessageType_MIN = IPC_NONE;
-constexpr IPCMessageType IPCMessageType_MAX = IPC_MATCH_REQUEST;
+constexpr IPCMessageType IPCMessageType_MAX = IPC_P1_MATCH_REQUEST;
 constexpr int IPCMessageType_ARRAYSIZE = IPCMessageType_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* IPCMessageType_descriptor();

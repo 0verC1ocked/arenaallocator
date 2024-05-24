@@ -4,7 +4,8 @@ package IPC;
 enum IPCMessageType {
     IPC_NONE = 0;
     IPC_CREATE_MATCH_REQUEST = 1;
-    IPC_MATCH_REQUEST = 2;
+    IPC_P0_MATCH_REQUEST = 2;
+    IPC_P1_MATCH_REQUEST = 3;
 }
 
 message IPCMessage {
