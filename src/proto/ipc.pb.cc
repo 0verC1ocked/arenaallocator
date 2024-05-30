@@ -46,6 +46,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_ipc_2eproto::offsets[] PROTOBU
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::IPC::IPCMessage, type_),
   PROTOBUF_FIELD_OFFSET(::IPC::IPCMessage, data_),
+  PROTOBUF_FIELD_OFFSET(::IPC::IPCMessage, matchid_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::IPC::IPCMessage)},
@@ -56,12 +57,12 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
 };
 
 const char descriptor_table_protodef_ipc_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
-  "\n\tipc.proto\022\003IPC\"=\n\nIPCMessage\022!\n\004type\030\001"
-  " \001(\0162\023.IPC.IPCMessageType\022\014\n\004data\030\002 \001(\014*"
-  "p\n\016IPCMessageType\022\014\n\010IPC_NONE\020\000\022\034\n\030IPC_C"
-  "REATE_MATCH_REQUEST\020\001\022\030\n\024IPC_P0_MATCH_RE"
-  "QUEST\020\002\022\030\n\024IPC_P1_MATCH_REQUEST\020\003b\006proto"
-  "3"
+  "\n\tipc.proto\022\003IPC\"N\n\nIPCMessage\022!\n\004type\030\001"
+  " \001(\0162\023.IPC.IPCMessageType\022\014\n\004data\030\002 \001(\014\022"
+  "\017\n\007matchid\030\003 \001(\t*p\n\016IPCMessageType\022\014\n\010IP"
+  "C_NONE\020\000\022\034\n\030IPC_CREATE_MATCH_REQUEST\020\001\022\030"
+  "\n\024IPC_P0_MATCH_REQUEST\020\002\022\030\n\024IPC_P1_MATCH"
+  "_REQUEST\020\003b\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_ipc_2eproto_deps[1] = {
 };
@@ -70,7 +71,7 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_ipc
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_ipc_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_ipc_2eproto = {
-  false, false, descriptor_table_protodef_ipc_2eproto, "ipc.proto", 201,
+  false, false, descriptor_table_protodef_ipc_2eproto, "ipc.proto", 218,
   &descriptor_table_ipc_2eproto_once, descriptor_table_ipc_2eproto_sccs, descriptor_table_ipc_2eproto_deps, 1, 0,
   schemas, file_default_instances, TableStruct_ipc_2eproto::offsets,
   file_level_metadata_ipc_2eproto, 1, file_level_enum_descriptors_ipc_2eproto, file_level_service_descriptors_ipc_2eproto,
@@ -118,6 +119,11 @@ IPCMessage::IPCMessage(const IPCMessage& from)
     data_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_data(),
       GetArena());
   }
+  matchid_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_matchid().empty()) {
+    matchid_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_matchid(),
+      GetArena());
+  }
   type_ = from.type_;
   // @@protoc_insertion_point(copy_constructor:IPC.IPCMessage)
 }
@@ -125,6 +131,7 @@ IPCMessage::IPCMessage(const IPCMessage& from)
 void IPCMessage::SharedCtor() {
   ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_IPCMessage_ipc_2eproto.base);
   data_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  matchid_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   type_ = 0;
 }
 
@@ -137,6 +144,7 @@ IPCMessage::~IPCMessage() {
 void IPCMessage::SharedDtor() {
   GOOGLE_DCHECK(GetArena() == nullptr);
   data_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  matchid_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
 void IPCMessage::ArenaDtor(void* object) {
@@ -161,6 +169,7 @@ void IPCMessage::Clear() {
   (void) cached_has_bits;
 
   data_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  matchid_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   type_ = 0;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -186,6 +195,15 @@ const char* IPCMessage::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           auto str = _internal_mutable_data();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // string matchid = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+          auto str = _internal_mutable_matchid();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "IPC.IPCMessage.matchid"));
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -230,6 +248,16 @@ failure:
         2, this->_internal_data(), target);
   }
 
+  // string matchid = 3;
+  if (this->matchid().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_matchid().data(), static_cast<int>(this->_internal_matchid().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "IPC.IPCMessage.matchid");
+    target = stream->WriteStringMaybeAliased(
+        3, this->_internal_matchid(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -251,6 +279,13 @@ size_t IPCMessage::ByteSizeLong() const {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
         this->_internal_data());
+  }
+
+  // string matchid = 3;
+  if (this->matchid().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_matchid());
   }
 
   // .IPC.IPCMessageType type = 1;
@@ -293,6 +328,9 @@ void IPCMessage::MergeFrom(const IPCMessage& from) {
   if (from.data().size() > 0) {
     _internal_set_data(from._internal_data());
   }
+  if (from.matchid().size() > 0) {
+    _internal_set_matchid(from._internal_matchid());
+  }
   if (from.type() != 0) {
     _internal_set_type(from._internal_type());
   }
@@ -320,6 +358,7 @@ void IPCMessage::InternalSwap(IPCMessage* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   data_.Swap(&other->data_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  matchid_.Swap(&other->matchid_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   swap(type_, other->type_);
 }
 

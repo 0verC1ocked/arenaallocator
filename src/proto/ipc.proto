@@ -11,4 +11,5 @@ enum IPCMessageType {
 message IPCMessage {
     IPCMessageType type = 1;
     bytes data = 2;
+    string matchid = 3;
 }

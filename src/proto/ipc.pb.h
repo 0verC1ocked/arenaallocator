@@ -208,6 +208,7 @@ class IPCMessage PROTOBUF_FINAL :
 
   enum : int {
     kDataFieldNumber = 2,
+    kMatchidFieldNumber = 3,
     kTypeFieldNumber = 1,
   };
   // bytes data = 2;
@@ -235,6 +236,31 @@ class IPCMessage PROTOBUF_FINAL :
   std::string* _internal_mutable_data();
   public:
 
+  // string matchid = 3;
+  void clear_matchid();
+  const std::string& matchid() const;
+  void set_matchid(const std::string& value);
+  void set_matchid(std::string&& value);
+  void set_matchid(const char* value);
+  void set_matchid(const char* value, size_t size);
+  std::string* mutable_matchid();
+  std::string* release_matchid();
+  void set_allocated_matchid(std::string* matchid);
+  GOOGLE_PROTOBUF_RUNTIME_DEPRECATED("The unsafe_arena_ accessors for"
+  "    string fields are deprecated and will be removed in a"
+  "    future release.")
+  std::string* unsafe_arena_release_matchid();
+  GOOGLE_PROTOBUF_RUNTIME_DEPRECATED("The unsafe_arena_ accessors for"
+  "    string fields are deprecated and will be removed in a"
+  "    future release.")
+  void unsafe_arena_set_allocated_matchid(
+      std::string* matchid);
+  private:
+  const std::string& _internal_matchid() const;
+  void _internal_set_matchid(const std::string& value);
+  std::string* _internal_mutable_matchid();
+  public:
+
   // .IPC.IPCMessageType type = 1;
   void clear_type();
   ::IPC::IPCMessageType type() const;
@@ -252,6 +278,7 @@ class IPCMessage PROTOBUF_FINAL :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr data_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr matchid_;
   int type_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ipc_2eproto;
@@ -366,6 +393,87 @@ inline void IPCMessage::unsafe_arena_set_allocated_data(
   data_.UnsafeArenaSetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
       data, GetArena());
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IPC.IPCMessage.data)
+}
+
+// string matchid = 3;
+inline void IPCMessage::clear_matchid() {
+  matchid_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline const std::string& IPCMessage::matchid() const {
+  // @@protoc_insertion_point(field_get:IPC.IPCMessage.matchid)
+  return _internal_matchid();
+}
+inline void IPCMessage::set_matchid(const std::string& value) {
+  _internal_set_matchid(value);
+  // @@protoc_insertion_point(field_set:IPC.IPCMessage.matchid)
+}
+inline std::string* IPCMessage::mutable_matchid() {
+  // @@protoc_insertion_point(field_mutable:IPC.IPCMessage.matchid)
+  return _internal_mutable_matchid();
+}
+inline const std::string& IPCMessage::_internal_matchid() const {
+  return matchid_.Get();
+}
+inline void IPCMessage::_internal_set_matchid(const std::string& value) {
+  
+  matchid_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value, GetArena());
+}
+inline void IPCMessage::set_matchid(std::string&& value) {
+  
+  matchid_.Set(
+    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:IPC.IPCMessage.matchid)
+}
+inline void IPCMessage::set_matchid(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  matchid_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value),
+              GetArena());
+  // @@protoc_insertion_point(field_set_char:IPC.IPCMessage.matchid)
+}
+inline void IPCMessage::set_matchid(const char* value,
+    size_t size) {
+  
+  matchid_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:IPC.IPCMessage.matchid)
+}
+inline std::string* IPCMessage::_internal_mutable_matchid() {
+  
+  return matchid_.Mutable(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline std::string* IPCMessage::release_matchid() {
+  // @@protoc_insertion_point(field_release:IPC.IPCMessage.matchid)
+  return matchid_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void IPCMessage::set_allocated_matchid(std::string* matchid) {
+  if (matchid != nullptr) {
+    
+  } else {
+    
+  }
+  matchid_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), matchid,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:IPC.IPCMessage.matchid)
+}
+inline std::string* IPCMessage::unsafe_arena_release_matchid() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:IPC.IPCMessage.matchid)
+  GOOGLE_DCHECK(GetArena() != nullptr);
+  
+  return matchid_.UnsafeArenaRelease(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      GetArena());
+}
+inline void IPCMessage::unsafe_arena_set_allocated_matchid(
+    std::string* matchid) {
+  GOOGLE_DCHECK(GetArena() != nullptr);
+  if (matchid != nullptr) {
+    
+  } else {
+    
+  }
+  matchid_.UnsafeArenaSetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      matchid, GetArena());
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IPC.IPCMessage.matchid)
 }
 
 #ifdef __GNUC__
