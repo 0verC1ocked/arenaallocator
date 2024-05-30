@@ -70,12 +70,14 @@ enum IPCMessageType : int {
   IPC_CREATE_MATCH_REQUEST = 1,
   IPC_P0_MATCH_REQUEST = 2,
   IPC_P1_MATCH_REQUEST = 3,
+  IPC_ENET_SEND = 4,
+  IPC_ENET_STREAM = 5,
   IPCMessageType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::min(),
   IPCMessageType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::max()
 };
 bool IPCMessageType_IsValid(int value);
 constexpr IPCMessageType IPCMessageType_MIN = IPC_NONE;
-constexpr IPCMessageType IPCMessageType_MAX = IPC_P1_MATCH_REQUEST;
+constexpr IPCMessageType IPCMessageType_MAX = IPC_ENET_STREAM;
 constexpr int IPCMessageType_ARRAYSIZE = IPCMessageType_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* IPCMessageType_descriptor();
@@ -209,6 +211,7 @@ class IPCMessage PROTOBUF_FINAL :
   enum : int {
     kDataFieldNumber = 2,
     kMatchidFieldNumber = 3,
+    kUseridFieldNumber = 4,
     kTypeFieldNumber = 1,
   };
   // bytes data = 2;
@@ -261,6 +264,31 @@ class IPCMessage PROTOBUF_FINAL :
   std::string* _internal_mutable_matchid();
   public:
 
+  // string userid = 4;
+  void clear_userid();
+  const std::string& userid() const;
+  void set_userid(const std::string& value);
+  void set_userid(std::string&& value);
+  void set_userid(const char* value);
+  void set_userid(const char* value, size_t size);
+  std::string* mutable_userid();
+  std::string* release_userid();
+  void set_allocated_userid(std::string* userid);
+  GOOGLE_PROTOBUF_RUNTIME_DEPRECATED("The unsafe_arena_ accessors for"
+  "    string fields are deprecated and will be removed in a"
+  "    future release.")
+  std::string* unsafe_arena_release_userid();
+  GOOGLE_PROTOBUF_RUNTIME_DEPRECATED("The unsafe_arena_ accessors for"
+  "    string fields are deprecated and will be removed in a"
+  "    future release.")
+  void unsafe_arena_set_allocated_userid(
+      std::string* userid);
+  private:
+  const std::string& _internal_userid() const;
+  void _internal_set_userid(const std::string& value);
+  std::string* _internal_mutable_userid();
+  public:
+
   // .IPC.IPCMessageType type = 1;
   void clear_type();
   ::IPC::IPCMessageType type() const;
@@ -279,6 +307,7 @@ class IPCMessage PROTOBUF_FINAL :
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr data_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr matchid_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr userid_;
   int type_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ipc_2eproto;
@@ -474,6 +503,87 @@ inline void IPCMessage::unsafe_arena_set_allocated_matchid(
   matchid_.UnsafeArenaSetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
       matchid, GetArena());
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IPC.IPCMessage.matchid)
+}
+
+// string userid = 4;
+inline void IPCMessage::clear_userid() {
+  userid_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline const std::string& IPCMessage::userid() const {
+  // @@protoc_insertion_point(field_get:IPC.IPCMessage.userid)
+  return _internal_userid();
+}
+inline void IPCMessage::set_userid(const std::string& value) {
+  _internal_set_userid(value);
+  // @@protoc_insertion_point(field_set:IPC.IPCMessage.userid)
+}
+inline std::string* IPCMessage::mutable_userid() {
+  // @@protoc_insertion_point(field_mutable:IPC.IPCMessage.userid)
+  return _internal_mutable_userid();
+}
+inline const std::string& IPCMessage::_internal_userid() const {
+  return userid_.Get();
+}
+inline void IPCMessage::_internal_set_userid(const std::string& value) {
+  
+  userid_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value, GetArena());
+}
+inline void IPCMessage::set_userid(std::string&& value) {
+  
+  userid_.Set(
+    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:IPC.IPCMessage.userid)
+}
+inline void IPCMessage::set_userid(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  userid_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value),
+              GetArena());
+  // @@protoc_insertion_point(field_set_char:IPC.IPCMessage.userid)
+}
+inline void IPCMessage::set_userid(const char* value,
+    size_t size) {
+  
+  userid_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:IPC.IPCMessage.userid)
+}
+inline std::string* IPCMessage::_internal_mutable_userid() {
+  
+  return userid_.Mutable(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline std::string* IPCMessage::release_userid() {
+  // @@protoc_insertion_point(field_release:IPC.IPCMessage.userid)
+  return userid_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void IPCMessage::set_allocated_userid(std::string* userid) {
+  if (userid != nullptr) {
+    
+  } else {
+    
+  }
+  userid_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), userid,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:IPC.IPCMessage.userid)
+}
+inline std::string* IPCMessage::unsafe_arena_release_userid() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:IPC.IPCMessage.userid)
+  GOOGLE_DCHECK(GetArena() != nullptr);
+  
+  return userid_.UnsafeArenaRelease(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      GetArena());
+}
+inline void IPCMessage::unsafe_arena_set_allocated_userid(
+    std::string* userid) {
+  GOOGLE_DCHECK(GetArena() != nullptr);
+  if (userid != nullptr) {
+    
+  } else {
+    
+  }
+  userid_.UnsafeArenaSetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      userid, GetArena());
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IPC.IPCMessage.userid)
 }
 
 #ifdef __GNUC__

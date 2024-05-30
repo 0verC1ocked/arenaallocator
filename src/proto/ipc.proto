@@ -6,10 +6,13 @@ enum IPCMessageType {
     IPC_CREATE_MATCH_REQUEST = 1;
     IPC_P0_MATCH_REQUEST = 2;
     IPC_P1_MATCH_REQUEST = 3;
+    IPC_ENET_SEND = 4;
+    IPC_ENET_STREAM = 5;
 }
 
 message IPCMessage {
     IPCMessageType type = 1;
     bytes data = 2;
     string matchid = 3;
+    string userid = 4;
 }
