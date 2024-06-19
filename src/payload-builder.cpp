@@ -19,6 +19,8 @@ PayloadBuilder& PayloadBuilder::resetPayload() {
     this->_rid = "";
     this->_oid = "";
     this->_msg = "";
+
+    this->_team = PAYLOAD::TeamPosition::TEAM_POSITION_NONE;
     return *this;
 }
 
@@ -42,6 +44,11 @@ PayloadBuilder& PayloadBuilder::setMessage(std::string MSG) {
     return *this;
 }
 
+PayloadBuilder& PayloadBuilder::setTeam(PAYLOAD::TeamPosition p) {
+    this->_team = p;
+    return *this;
+}
+
 PAYLOAD::Payload* PayloadBuilder::newPayload() {
     return google::protobuf::Arena::CreateMessage<PAYLOAD::Payload>(this->_arena.get());
 }
@@ -60,6 +67,7 @@ PayloadBuilder& PayloadBuilder::build(PAYLOAD::Payload* payload) {
     payload->mutable_data()->set_opponentid(this->_oid);
     payload->mutable_data()->set_roomid(this->_rid);
     payload->mutable_data()->set_msg(this->_msg);
+    payload->set_for_team(this->_team);
     this->resetPayload();
     return *this;
 }
