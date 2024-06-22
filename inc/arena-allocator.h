@@ -7,9 +7,9 @@
 
 class ArenaAllocator {
 private:
-    ArenaAllocator();
     std::unique_ptr<google::protobuf::Arena> _arena;
 public:
+    ArenaAllocator();
     ~ArenaAllocator();
 
     PAYLOAD::Payload* newPayload();
