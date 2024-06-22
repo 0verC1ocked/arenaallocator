@@ -8,6 +8,8 @@
 class ArenaAllocator {
 private:
     ArenaAllocator();
+    std::unique_ptr<google::protobuf::Arena> _arena;
+public:
     ~ArenaAllocator();
 
     PAYLOAD::Payload* newPayload();
@@ -16,5 +18,4 @@ private:
 
     IPC::IPCMessage* newIPCMessage();
 
-    std::unique_ptr<google::protobuf::Arena> _arena;
 };
