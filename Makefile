@@ -6,7 +6,7 @@ SRC_DIR := ./src
 INC_DIR := ./inc
 LIBS := -lprotobuf
 
-TARGET := libpayloadbuilder.a
+TARGET := libarenaallocator.a
 
 HEADERS := $(shell find $(INC_DIR) -name '*.h' -or -name '*.hpp')
 SRCS := $(shell find $(SRC_DIR) -name '*.cpp' -or -name '*.c' -or -name "*.cc" -or -name '*.s')
